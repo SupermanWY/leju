@@ -50,7 +50,7 @@
         if (this.username === '' || this.password === '') {
           alert('用户名或密码不能为空')
         } else {
-          axios.get('/static/login.json', {
+          axios.get('/user/login/', {
             username: this.username,
             password: this.password
           }).then(this.handleLoginSucc.bind(this))

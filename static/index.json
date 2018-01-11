@@ -1,0 +1,44 @@
+{
+	"ret": true,
+  "data": {
+    "banner": [{
+      "id": "0001",
+      "imgUrl": "/static/img/banner.png"
+      },{
+      "id": "0002",
+      "imgUrl": "/static/img/banner.png"
+    },{
+      "id": "0003",
+      "imgUrl": "/static/img/banner.png"
+    }],
+    "wellDesign": [{
+      "id": "0001",
+      "top_img": "/static/img/list.png",
+      "yop_title": "标题-飞洒地方撒旦放到",
+      "username": "用户名字",
+      "house_type": "两室",
+      "usable_area": "32平米"
+    },{
+      "id": "0002",
+      "top_img": "/static/img/list.png",
+      "yop_title": "标题-飞洒地方撒旦放到",
+      "username": "用户名字",
+      "house_type": "两室",
+      "usable_area": "32平米"
+    },{
+      "id": "0003",
+      "top_img": "/static/img/list.png",
+      "yop_title": "标题-飞洒地方撒旦放到",
+      "username": "用户名字",
+      "house_type": "两室",
+      "usable_area": "32平米"
+    },{
+      "id": "0004",
+      "top_img": "/static/img/list.png",
+      "yop_title": "标题-飞洒地方撒旦放到",
+      "username": "用户名字",
+      "house_type": "两室",
+      "usable_area": "32平米"
+    }]
+  }
+}

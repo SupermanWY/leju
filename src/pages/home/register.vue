@@ -49,7 +49,7 @@
         }
         this.$refs.password.value = this.passwordFlag ? this.$refs.password.value : '密码必须是8-16位字母和数'
 
-        if (this.passwordFlag && this.userFlag &&　verification) {
+        if (this.passwordFlag && this.userFlag && verification) {
           axios.get('/static/register.json', {
             username: username,
             verification: verification,
@@ -161,5 +161,4 @@
         height: 100%
         width: 100%
         background: #fff
-
 </style>

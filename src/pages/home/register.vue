@@ -16,7 +16,7 @@
         <div class="verification inputCode border-bottom">
           <input type="text" class="register-input"  placeholder="请输入验证码" ref="verification">
         </div>
-       <input type="button" class="verification getVerification"  value="获取验证码">
+       <input type="button" class="verification getVerification"  value="获取验证码" @click="handleGetCode($refs.username.value)">
      </label>
       <label class="register-container border-bottom">
         <input type="text" class="register-input" placeholder="请输入密码" ref="password">
@@ -29,17 +29,74 @@
   </div>
 </template>
 <script>
+  import axios from 'axios'
   export default {
     name: 'register',
+    data () {
+      return {
+        smsState: false,
+        userFlag: false,
+        passwordFlag: false
+      }
+    },
     methods: {
       handleSubmitClick (username, verification, password) {
-        const usernameReg = /^1[3587]\d{9}$/
         const passwordReg = /^[a-zA-Z0-9]{8,16}$/
-        if (usernameReg.test(username)) {
-          console.log(true)
+        if (passwordReg.test(password)) {
+          this.passwordFlag = true
         } else {
-          console.log(false)
+          this.passwordFlag = false
         }
+        this.$refs.password.value = this.passwordFlag ? this.$refs.password.value : '密码必须是8-16位字母和数'
+
+        if (this.passwordFlag && this.userFlag &&　verification) {
+          axios.get('/static/register.json', {
+            username: username,
+            verification: verification,
+            password: password
+          })
+            .then(this.handleRegisterSucc.bind(this))
+            .catch(this.handleRegisterErr.bind(this))
+        }
+      },
+      handleRegisterSucc (res) {
+        const state = res.data.data.state
+        if (state === 0) {
+          console.log('缺少参数')
+        } else if (state === 1) {
+          console.log('验证码错误')
+        } else if (state === 2) {
+          console.log('注册成功')
+        } else if (state === 3) {
+          console.log('注册失败')
+        } else if (state === 4) {
+          console.log('用户已经注册')
+        }
+      },
+      handleRegisterErr () {
+        console.log('请求失败')
+      },
+      handleGetCode (username) {
+        const usernameReg = /^1[3587]\d{9}$/
+        if (usernameReg.test(username)) {
+          this.userFlag = true
+        } else {
+          this.userFlag = false
+        }
+        this.$refs.username.value = this.userFlag ? this.$refs.username.value : '必须是手机号'
+        if (this.userFlag) {
+          axios.get('/static/register/send/sms/sms.json', {
+            username: username
+          })
+            .then(this.handleGetSmsSucc.bind(this))
+            .catch(this.handleGetSmsErr.bind(this))
+        }
+      },
+      handleGetSmsSucc (res) {
+        this.smsState = res.data.data.state
+      },
+      handleGetSmsErr () {
+        console.log('获取验证码失败')
       }
     }
   }

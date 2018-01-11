@@ -1,10 +1,10 @@
 <template>
   <div>
     <div class="top">
-      <img src="../../resource/logo.png" class="img">
+      <img src="../../resource/logo.png" class="logo">
       <div class="nav">
-        <div class="content-nav">注册</div>
-        <div class="content-nav login">登录</div>
+        <router-link to="/register" tag="div" class="content-nav">注册</router-link>
+        <router-link to="/login" tag="div" class="content-nav login">登录</router-link>
       </div>
     </div>
     <div class="container">
@@ -77,7 +77,7 @@
     box-sizing: border-box;
     padding-top: 1.56rem;
     background: #32b379;
-    .img 
+    .logo 
       display: block;
       width: 1.28rem;
       height: 2.21rem;

@@ -6,6 +6,7 @@ import router from './router'
 import VievSwiper from 'vue-awesome-swiper'
 import VueResource from 'vue-resource'
 import Fastclick from 'fastclick'
+import store from './store/index.js'
 import VueLazyload from 'vue-lazyload'
 import 'swiper/dist/css/swiper.css'
 import '@/assets/styles/base/reset.css'
@@ -28,6 +29,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  store,
   template: '<App/>',
   components: { App }
 })

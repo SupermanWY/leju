@@ -35,6 +35,7 @@
 
 <script>
   import axios from 'axios'
+  import { mapMutations } from 'vuex'
   export default {
     name: 'register',
     data () {
@@ -46,6 +47,7 @@
       }
     },
     methods: {
+      ...mapMutations(['changeUserInfo']),
       handleLoginClick () {
         if (this.username === '' || this.password === '') {
           alert('用户名或密码不能为空')
@@ -60,7 +62,8 @@
         res.data && (res = res.data)
         var state = res.data.state
         if (state === 2) {
-          alert('跳转到首页')
+          this.changeUserInfo(res.data)
+          this.$router.push('/')
         } else if (state === 1) {
           alert('密码错误')
         } else if (state === 3) {

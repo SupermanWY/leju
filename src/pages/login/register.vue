@@ -122,6 +122,14 @@
       .register,.login
         width: 50%;
         height: .7rem
+        position: relative
+      .register::before
+        content: "";
+        position: absolute;
+        border: .28rem solid transparent;
+        border-bottom: .28rem solid #fff;
+        bottom: 0;
+        opacity: .5;
    .main
       display: flex
       flex-direction: column
@@ -137,6 +145,9 @@
         border-color: #999
       .register-input
         padding-top: .54rem
+        font-size: .24rem
+        &::placeholder
+          color: #ccc
       .verification
         float: left
       .inputCode 
@@ -155,6 +166,7 @@
       font-size: .32rem
       &::before
         border-color: #383838
+        border-radius: .5rem
       .submit 
         height: 100%
         width: 100%

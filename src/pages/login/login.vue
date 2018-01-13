@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="top">
-      <img src="../../resource/logo.png" class="logo">
+      <img src="/static/img/logo.png" class="logo">
       <div class="nav">
         <router-link to="/register" tag="div" class="content-nav">注册</router-link>
         <router-link to="/login" tag="div" class="content-nav login">登录</router-link>
@@ -30,14 +30,20 @@
         <a href="javascript:;" class="agree-link">乐居用户协议条款</a>
       </div>
     </div>
+    <toast ref="toast"></toast>
   </div>
 </template>
 
 <script>
   import axios from 'axios'
   import { mapMutations } from 'vuex'
+
+  import toast from '../../components/ui/toast'
   export default {
     name: 'register',
+    components: {
+      toast
+    },
     data () {
       return {
         username: '',
@@ -50,7 +56,7 @@
       ...mapMutations(['changeUserInfo']),
       handleLoginClick () {
         if (this.username === '' || this.password === '') {
-          alert('用户名或密码不能为空')
+          this.$refs.toast.toastShow('用户名或密码不能为空')
         } else {
           axios.get('/user/login/', {
             username: this.username,
@@ -65,9 +71,9 @@
           this.changeUserInfo(res.data)
           this.$router.push('/')
         } else if (state === 1) {
-          alert('密码错误')
+          this.$refs.toast.toastShow('密码错误')
         } else if (state === 3) {
-          alert('该账户不存在')
+          this.$refs.toast.toastShow('该账户不存在')
         }
       }
     }

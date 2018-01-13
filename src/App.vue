@@ -1,5 +1,7 @@
 <template>
-  <router-view/>
+  <keep-alive exclude='myindex'>
+    <router-view/>
+  </keep-alive>
 </template>
 
 <script>

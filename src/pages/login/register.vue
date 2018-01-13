@@ -1,7 +1,7 @@
 <template>
   <div class="body">
     <div class="header">
-      <img class="logo-img" src="../../resource/logo.png" alt="">
+      <img class="logo-img" src="/static/img/logo.png" alt="">
       <div class="operation">
         <router-link to="/register" tag="span" class="register">注册</router-link>
         <router-link to="/login" tag="span" class="login">登录</router-link>

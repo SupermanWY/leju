@@ -1,23 +1,21 @@
 <template>
   <div class="footer border-top">
-    <router-link to="/">
-      <div class="nav">
-        <div class="icon-nav icon-nav-active iconfont">&#xe603;</div>
-        <div class="text-nav">首页</div>
-      </div>
+    <router-link class="nav" tag="div" to="/">
+      <div class="icon-nav iconfont">&#xe653;</div>
+      <div class="text-nav">首页</div>
+    </router-link>
+    <router-link class="nav" tag="div" to="/inspiration">
+      <div class="icon-nav iconfont">&#xe640;</div>
+      <div class="text-nav">灵感</div>
     </router-link>
     <div class="nav">
-      <div class="icon-nav iconfont">&#xe617;</div>
-      <div class="text-nav">灵感</div>
-    </div>
-    <div class="nav">
-      <div class="icon-nav iconfont">&#xe602;</div>
+      <div class="icon-nav iconfont">&#xe6f7;</div>
       <div class="text-nav">话题</div>
     </div>
-    <div class="nav">
-      <div class="icon-nav iconfont">&#xe60d;</div>
+    <router-link class="nav" tag="div" to="/my">
+      <div class="icon-nav iconfont">&#xe62c;</div>
       <div class="text-nav">我的</div>
-    </div>
+    </router-link>
   </div>
 </template>
 
@@ -42,9 +40,13 @@
       .icon-nav
         padding-bottom: .15rem;
         font-size: .4rem;
+        color: #666;
       .icon-nav-active
         color: #32b379;
       .text-nav
         font-size: .2rem;
         color: #333;
+    .router-link-exact-active
+      .icon-nav
+        color: #32b379
 </style>

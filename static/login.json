@@ -3,8 +3,8 @@
 	"ret": true,
 	"data": {
 		"state": 2, 
-		"username":"用户名",
-		"icon":"头像",
+		"username":"呦呦",
+		"icon":"/static/img/banner.png",
 		"sex":"true/false",
 		"address":"地址xx-xxx-xxx",
 		"birehday":"1955-5-2",

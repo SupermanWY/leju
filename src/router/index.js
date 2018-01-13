@@ -4,6 +4,7 @@ import Index from '@/pages/home/index'
 import Login from '@/pages/login/login'
 import Register from '@/pages/login/register'
 import Inspiration from '@/pages/inspiration/index'
+import My from '@/pages/my'
 
 Vue.use(Router)
 
@@ -28,6 +29,11 @@ export default new Router({
       path: '/inspiration',
       name: 'inspiration',
       component: Inspiration
+    },
+    {
+      path: '/my',
+      name: 'my',
+      component: My
     }
   ]
 })

@@ -5,25 +5,25 @@
       <swiper :bannerInfo='bannerInfo'></swiper>
       <div class="nav">
         <div class="item-nav">
-          <img src="../../resource/decorate.png" class="img-item">
+          <img src="/static/img/decorate.png" class="img-item">
           <div class="text-item">学装修</div>
         </div>
         <div class="item-nav">
-          <img src="../../resource/design.png" class="img-item">
+          <img src="/static/img/design.png" class="img-item">
           <div class="text-item">找设计</div>
         </div>
         <div class="item-nav">
-          <img src="../../resource/diray.png" class="img-item">
+          <img src="/static/img/diray.png" class="img-item">
           <div class="text-item">看日记</div>
         </div>
         <div class="item-nav">
-          <img src="../../resource/question.png" class="img-item">
+          <img src="/static/img/question.png" class="img-item">
           <div class="text-item">提问题</div>
         </div>
       </div>
       <list :listInfo='listInfo'></list>
     </div>
-    <foot></foot>
+    <foot class="footer"></foot>
   </div>
 </template>
 
@@ -34,7 +34,7 @@
   import indexHeader from './header'
   import swiper from './swiper'
   import list from './list'
-  import foot from './foot'
+  import foot from '../../components/common/foot'
 
   export default {
     name: 'index',
@@ -103,4 +103,5 @@
         .text-item
           font-size: .24rem;
           color: #666;
+      
 </style>

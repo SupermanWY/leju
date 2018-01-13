@@ -1,7 +1,7 @@
 <template>
   <div class="footer border-top">
     <router-link class="nav" tag="div" to="/">
-      <div class="icon-nav icon-nav-active iconfont">&#xe603;</div>
+      <div class="icon-nav iconfont">&#xe603;</div>
       <div class="text-nav">首页</div>
     </router-link>
     <router-link class="nav" tag="div" to="/inspiration">

@@ -23,7 +23,7 @@
       </div>
       <list :listInfo='listInfo'></list>
     </div>
-    <foot></foot>
+    <foot class="footer"></foot>
   </div>
 </template>
 
@@ -103,4 +103,6 @@
         .text-item
           font-size: .24rem;
           color: #666;
+    .footer >>> .text-nav
+      color: #32b379;
 </style>

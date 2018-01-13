@@ -20,7 +20,8 @@ module.exports = {
       '/user': {
         target: 'http://localhost:8080',
         pathRewrite: {
-        '/user/login/': '/static/login.json'
+        '/user/login/': '/static/login.json',
+        '/user/register/send/sms/': '/static/register/send/sms/sms.json'
         }
       }
     },

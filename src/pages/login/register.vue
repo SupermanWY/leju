@@ -49,7 +49,7 @@
         this.$refs.password.value = this.passwordFlag ? this.$refs.password.value : '密码必须是8-16位字母和数'
 
         if (this.passwordFlag && this.userFlag && verification) {
-          axios.get('/static/register.json', {
+          axios.get('/user/register/', {
             username: username,
             verification: verification,
             password: password
@@ -84,7 +84,7 @@
         }
         this.$refs.username.value = this.userFlag ? this.$refs.username.value : '必须是手机号'
         if (this.userFlag) {
-          axios.get('/static/register/send/sms/sms.json', {
+          axios.get('/user/register/send/sms/', {
             username: username
           })
             .then(this.handleGetSmsSucc.bind(this))

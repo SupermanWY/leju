@@ -16,8 +16,7 @@
           <div class="user">
             <div class="user-picture" 
              v-for="(img, index) in item.imgUrl" 
-             :key="img.id" 
-             :ref="'imgs' + img.id">
+             :key="img.id">
                 <img class="user-img" :src="img.imgUrl">
             </div>
             <div class="message-con">
@@ -34,29 +33,8 @@
   export default {
     name: 'topicmain',
 
-    props: ['topicInfo'],
+    props: ['topicInfo']
 
-    computed: {
-      position () {
-        const arr = []
-        this.topicInfo.forEach((value, index) => {
-          arr.push(value.imgUrl)
-        })
-        return arr
-      }
-    },
-
-    methods: {
-      getDomPosition () {
-        console.log(this.position)
-      }
-    },
-
-    watch: {
-      topicInfo () {
-        this.getDomPosition()
-      }
-    }
   }
 </script>
 <style scoped lang="stylus">
@@ -113,6 +91,7 @@
             align-items: flex-start
             .user-picture
               width: .5rem
+              margin-left: -.08rem
               .user-img
                 width: 100%
             .message-con

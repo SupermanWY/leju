@@ -6,14 +6,14 @@
         <div class="text-nav">首页</div>
       </div>
     </router-link>
-    <div class="nav">
+    <router-link to="/inspiration" class="nav" tag="div">
       <div class="icon-nav iconfont">&#xe617;</div>
       <div class="text-nav">灵感</div>
-    </div>
-    <div class="nav">
+    </router-link>
+    <router-link to="/topic" class="nav" tag="div">
       <div class="icon-nav iconfont">&#xe602;</div>
       <div class="text-nav">话题</div>
-    </div>
+    </router-link>
     <div class="nav">
       <div class="icon-nav iconfont">&#xe60d;</div>
       <div class="text-nav">我的</div>

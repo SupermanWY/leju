@@ -1,13 +1,6 @@
 {
 	"ret": true,
 	"data": [{
-		"id": "00001",
-		"imgUrl": "/static/img/ins1.png",
-		"describe": "飞洒发生刚刚打发斯蒂芬",
-		"headImg": "/static/img/ins1.png",
-		"username": "袁娜娜",
-		"num": 5
-	},{
 		"id": "00002",
 		"imgUrl": "/static/img/ins2.png",
 		"describe": "飞洒发生刚刚打发斯蒂芬",
@@ -37,20 +30,6 @@
 		"num": 5
 	},{
 		"id": "00006",
-		"imgUrl": "/static/img/ins3.png",
-		"describe": "飞洒发生刚刚打发斯蒂芬",
-		"headImg": "/static/img/ins1.png",
-		"username": "袁娜娜",
-		"num": 5
-	},{
-		"id": "00007",
-		"imgUrl": "/static/img/ins2.png",
-		"describe": "飞洒发生刚刚打发斯蒂芬",
-		"headImg": "/static/img/ins1.png",
-		"username": "袁娜娜",
-		"num": 5
-	},{
-		"id": "00008",
 		"imgUrl": "/static/img/ins3.png",
 		"describe": "飞洒发生刚刚打发斯蒂芬",
 		"headImg": "/static/img/ins1.png",

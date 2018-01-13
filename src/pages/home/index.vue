@@ -103,6 +103,5 @@
         .text-item
           font-size: .24rem;
           color: #666;
-    .footer >>> .text-nav
-      color: #32b379;
+      
 </style>

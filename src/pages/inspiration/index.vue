@@ -46,14 +46,8 @@
     },
     methods: {
       getData () {
-        if (this.style === 'sample') {
-          axios.get('/static/ins.json?style=' + this.style)
-             .then(this.handleGetDataSucc)
-             console.log(this.style)
-        } else {
-          axios.get('/static/inspiration.json?style=' + this.style)
-             .then(this.handleGetDataSucc)
-        }
+        axios.get('/static/inspiration.json?style=' + this.style)
+           .then(this.handleGetDataSucc)
       },
       handleGetDataSucc (res) {
         res.data && (res = res.data)

@@ -60,7 +60,7 @@
         res.data && (res = res.data)
         var state = res.data.state
         if (state === 2) {
-          alert('跳转到首页')
+          this.$router.push('/')
         } else if (state === 1) {
           alert('密码错误')
         } else if (state === 3) {

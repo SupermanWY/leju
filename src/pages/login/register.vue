@@ -84,7 +84,7 @@
         }
         this.$refs.username.value = this.userFlag ? this.$refs.username.value : '必须是手机号'
         if (this.userFlag) {
-          axios.get('/static/register/send/sms/sms.json', {
+          axios.get('/user/register/send/sms/', {
             username: username
           })
             .then(this.handleGetSmsSucc.bind(this))

@@ -1,15 +1,13 @@
 <template>
   <div class="footer border-top">
-    <router-link to="/">
-      <div class="nav">
-        <div class="icon-nav icon-nav-active iconfont">&#xe603;</div>
-        <div class="text-nav">首页</div>
-      </div>
+    <router-link class="nav" tag="div" to="/">
+      <div class="icon-nav icon-nav-active iconfont">&#xe603;</div>
+      <div class="text-nav">首页</div>
     </router-link>
-    <div class="nav">
+    <router-link class="nav" tag="div" to="/inspiration">
       <div class="icon-nav iconfont">&#xe617;</div>
       <div class="text-nav">灵感</div>
-    </div>
+    </router-link>
     <div class="nav">
       <div class="icon-nav iconfont">&#xe602;</div>
       <div class="text-nav">话题</div>

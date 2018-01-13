@@ -34,7 +34,7 @@
   import indexHeader from './header'
   import swiper from './swiper'
   import list from './list'
-  import foot from './foot'
+  import foot from '../../components/common/foot'
 
   export default {
     name: 'index',

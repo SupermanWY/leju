@@ -21,8 +21,8 @@ module.exports = {
         target: 'http://localhost:8080',
         pathRewrite: {
         '/user/login/': '/static/login.json',
+        '/user/register/send/sms/': '/static/register/send/sms/sms.json',
         '/user/register/': '/static/register.json'
-        '/user/register/send/sms/': '/static/register/send/sms/sms.json'
         }
       }
     },

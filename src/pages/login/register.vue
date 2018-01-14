@@ -55,7 +55,7 @@
           this.$refs.toast.toastShow('密码必须是8-16位字母和数')
         }
         if (this.passwordFlag && this.userFlag && verification) {
-          axios.get('/user/register/', {
+          axios.post('/user/register/', {
             username: username,
             verification: verification,
             password: password
@@ -93,7 +93,7 @@
           this.$refs.toast.toastShow('请输入正确的手机号')
         }
         if (this.userFlag) {
-          axios.get('/user/register/send/sms/', {
+          axios.post('/user/register/send/sms/', {
             username: username
           })
             .then(this.handleGetSmsSucc.bind(this))

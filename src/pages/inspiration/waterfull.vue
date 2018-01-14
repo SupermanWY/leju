@@ -12,7 +12,7 @@
               <span class="username">{{item.username}}</span>
             </div>
             <div class="right-userinfo">
-              <span class="iconfont icon">&#xe617;</span>
+              <span class="iconfont icon">&#xe640;</span>
               <span class="num">{{item.num}}</span>
             </div>
           </div>
@@ -30,7 +30,7 @@
               <span class="username">{{item.username}}</span>
             </div>
             <div class="right-userinfo">
-              <span class="iconfont icon">&#xe617;</span>
+              <span class="iconfont icon">&#xe640;</span>
               <span class="num">{{item.num}}</span>
             </div>
           </div>

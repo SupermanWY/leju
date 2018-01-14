@@ -8,10 +8,10 @@
       <div class="icon-nav iconfont">&#xe640;</div>
       <div class="text-nav">灵感</div>
     </router-link>
-    <div class="nav">
+    <router-link class="nav" to="topic">
       <div class="icon-nav iconfont">&#xe6f7;</div>
       <div class="text-nav">话题</div>
-    </div>
+    </router-link>
     <router-link class="nav" tag="div" to="/my">
       <div class="icon-nav iconfont">&#xe62c;</div>
       <div class="text-nav">我的</div>

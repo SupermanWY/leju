@@ -24,6 +24,12 @@ module.exports = {
         '/user/register/send/sms/': '/static/sms.json',
         '/user/register/': '/static/register.json'
         }
+      },
+      '/topic': {
+        target: 'http://localhost:8080',
+        pathRewrite: {
+        '/topic/': '/static/topic.json'
+        }
       }
     },
 

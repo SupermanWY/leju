@@ -1,17 +1,24 @@
 <template>
   <div>
     <div class="header">
-      <router-link class="search" to="/search">
+      <div class="search" to="/search">
         <span class="text-search iconfont">&#xe600;</span>
         <input type="text" placeholder="搜索装修新技能" class="input-search">
-      </router-link>
+      </div>
+      <router-link class="cancel" to="/" tag="div">取消</router-link>
+    </div>
+    <div>
+      <div class="hot-search">
+        <h2 class="title-hot">热门搜索</h2>
+        <div class="item-hot"></div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
   export default {
-    name: 'index-header'
+    name: 'search-index'
   }
 </script>
 
@@ -19,12 +26,13 @@
   .header
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     height: .88rem;
     background: #fff;
     .search
       display: flex;
-      width: 7.1rem;
+      flex: 1
+      margin: 0 .2rem
       height: .6rem;
       border-radius: .2rem;
       background: #f5f5f5;
@@ -41,4 +49,6 @@
         line-height: .6rem;
         font-size: .34rem;
         color: #333;
+    .cancel
+      padding-right: .2rem
 </style>

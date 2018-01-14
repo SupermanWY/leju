@@ -5,6 +5,8 @@ import Login from '@/pages/login/login'
 import Register from '@/pages/login/register'
 import Inspiration from '@/pages/inspiration/index'
 import My from '@/pages/my'
+import Topic from '@/pages/topic/index'
+import Search from '@/pages/search/index'
 
 Vue.use(Router)
 
@@ -34,6 +36,16 @@ export default new Router({
       path: '/my',
       name: 'my',
       component: My
+    },
+    {
+      path: '/topic',
+      name: 'topic',
+      component: Topic
+    },
+    {
+      path: '/search',
+      name: 'search',
+      component: Search
     }
   ]
 })

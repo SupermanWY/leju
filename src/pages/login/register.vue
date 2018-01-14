@@ -23,14 +23,19 @@
       <label class="register-container register-submit border"> 
         <input type="button" class="submit" value="注册" @click="handleSubmitClick($refs.username.value,$refs.verification.value,$refs.password.value,)">
       </label>
-    
     </div>
+    <toast ref="toast"></toast>
   </div>
 </template>
 <script>
   import axios from 'axios'
+
+  import toast from '../../components/ui/toast'
   export default {
     name: 'register',
+    components: {
+      toast
+    },
     data () {
       return {
         smsState: false,
@@ -46,8 +51,9 @@
         } else {
           this.passwordFlag = false
         }
-        this.$refs.password.value = this.passwordFlag ? this.$refs.password.value : '密码必须是8-16位字母和数'
-
+        if (!this.passwordFlag) {
+          this.$refs.toast.toastShow('密码必须是8-16位字母和数')
+        }
         if (this.passwordFlag && this.userFlag && verification) {
           axios.get('/user/register/', {
             username: username,
@@ -61,19 +67,20 @@
       handleRegisterSucc (res) {
         const state = res.data.data.state
         if (state === 0) {
-          console.log('缺少参数')
+          this.$refs.toast.toastShow('缺少参数')
         } else if (state === 1) {
-          console.log('验证码错误')
+          this.$refs.toast.toastShow('验证码错误')
         } else if (state === 2) {
-          console.log('注册成功')
+          this.$refs.toast.toastShow('注册成功')
+          this.$router.push('/login')
         } else if (state === 3) {
-          console.log('注册失败')
+          this.$refs.toast.toastShow('注册失败')
         } else if (state === 4) {
-          console.log('用户已经注册')
+          this.$refs.toast.toastShow('用户已经注册')
         }
       },
       handleRegisterErr () {
-        console.log('请求失败')
+        this.$refs.toast.toastShow('请求失败')
       },
       handleGetCode (username) {
         const usernameReg = /^1[3587]\d{9}$/
@@ -82,7 +89,9 @@
         } else {
           this.userFlag = false
         }
-        this.$refs.username.value = this.userFlag ? this.$refs.username.value : '必须是手机号'
+        if (!this.userFlag) {
+          this.$refs.toast.toastShow('请输入正确的手机号')
+        }
         if (this.userFlag) {
           axios.get('/user/register/send/sms/', {
             username: username
@@ -95,7 +104,7 @@
         this.smsState = res.data.data.state
       },
       handleGetSmsErr () {
-        console.log('获取验证码失败')
+        this.$refs.toast.toastShow('获取验证码失败')
       }
     }
   }
@@ -144,6 +153,7 @@
       &::before
         border-color: #999
       .register-input
+        width: 100%
         padding-top: .54rem
         font-size: .24rem
         &::placeholder

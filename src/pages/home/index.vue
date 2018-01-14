@@ -74,6 +74,11 @@
       handleGetDataErr () {
         console.log('请求失败')
       }
+    },
+    activated () {
+      if (this.scroll) {
+        this.scroll.refresh()
+      }
     }
   }
 </script>

@@ -37,7 +37,7 @@
 
     methods: {
       getDiaryInfo () {
-        axios.get('/static/diary.json')
+        axios.get('/diary/')
           .then(this.handleGetDiaryInfoSucc.bind(this))
           .catch(this.handleGetDiaryInfoErr.bind(this))
       },
@@ -76,7 +76,7 @@
       margin-top: .2rem
       .main
         .diray-list
-          margin: .2rem
+          padding: 0 .2rem .4rem 
           .img-container
             position: relative
             height: 0

@@ -6,7 +6,7 @@
       <div class="nav">
         <div class="item-nav">
           <img src="/static/img/decorate.png" class="img-item">
-          <div class="text-item">学装修</div>
+          <router-link class="text-item" to="/decorate" tag="div">学装修</router-link>
         </div>
         <div class="item-nav">
           <img src="/static/img/design.png" class="img-item">
@@ -73,11 +73,6 @@
       },
       handleGetDataErr () {
         console.log('请求失败')
-      }
-    },
-    activated () {
-      if (this.scroll) {
-        this.scroll.refresh()
       }
     }
   }

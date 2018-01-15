@@ -6,34 +6,28 @@
         <input 
           type="text" 
           placeholder="搜索装修新技能" 
-          class="input-search" 
-          :bind="searchVal" @input="handleInputChange">
+          class="input-search"
+          v-model="searchVal"
+          @input="handleInputChange">
       </div>
       <router-link class="cancel" to="/" tag="div">取消</router-link>
     </div>
-    <div>
-      <div class="search-con">
-        <h2 class="title">热门搜索</h2>
-        <div class="list">
-          <div class="item">卫生间</div>
-          <div class="item">主卧</div>
-          <div class="item">次卧</div>
-          <div class="item">厨房</div>
-          <div class="item">客厅</div>
-        </div>
-      </div>
-      <div class="search-con">
-        <h2 class="title">历史搜索</h2>
-        <div class="list">
-          <div class="item">厕所</div>
-          <div class="item">餐厅</div>
-        </div>
+    <div class="search-con">
+      <h2 class="title">热门搜索</h2>
+      <div class="list">
+        <div class="item">卫生间</div>
+        <div class="item">主卧</div>
+        <div class="item">次卧</div>
+        <div class="item">厨房</div>
+        <div class="item">客厅</div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+  import axios from 'axios'
+
   export default {
     name: 'search-index',
     data () {
@@ -43,13 +37,20 @@
     },
     methods: {
       handleInputChange () {
-        console.log(1)
+        this.debounce(this.getSearData, this, 500)
       },
-      debounce (fn, ctx) {
+      getSearData () {
+        axios.get('/search/?search=' + this.searchVal)
+             .then(this.handleGetSearchData.bind(this))
+      },
+      handleGetSearchData (res) {
+        console.log(123)
+      },
+      debounce (fn, ctx, delay) {
         clearTimeout(fn.id)
-        setTimeout(() => {
-          fn()
-        }, 500)
+        fn.id = setTimeout(() => {
+          fn.call(ctx)
+        }, delay)
       }
     }
   }
@@ -84,19 +85,23 @@
         color: #333;
     .cancel
       padding-right: .2rem
+      font-size: .28rem
+      color: #666
   .search-con
     margin: .2rem .2rem 0
     .title
-      margin-bottom: .2rem
-    .item
-      display: inline-block
-      width: 1.46rem
-      height: .46rem
-      margin-bottom: .1rem
-      text-align: center
-      line-height: .46rem
-      border: 1px solid #ccc
-      color: #fff
-      border-radius: .2rem
-      background: #bcbcbc
+      margin: .4rem 0 .3rem 0
+      font-size: .24rem
+    .list
+      font-size: 0
+      .item
+        display: inline-block
+        height: .64rem
+        padding: 0 .18rem
+        margin: 0 .2rem .2rem 0
+        line-height: .64rem
+        font-size: .24rem
+        color: #333
+        border-radius: .1rem
+        background: #f5f5f5
 </style>

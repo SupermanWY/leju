@@ -63,9 +63,10 @@
       padding: 0 .2rem;
       overflow: hidden;
       .img-con
-        height: 0;
-        padding-bottom: 50.28%;
-        background: cyan;
+        height: 0
+        padding-bottom: 50.28%
+        overflow: hidden
+        background: cyan
         .img
           width: 100%;
       .item-title

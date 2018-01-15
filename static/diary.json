@@ -1,0 +1,45 @@
+{
+	"ret": true,
+  "data": [{
+    "id": 1,
+    "title": "三口之家----温馨小美式！！！",
+    "imgurl": "/static/img/diary-big01.png",
+    "user_img": "/static/img/diary-small01.png",
+    "house_money": "42.3",
+    "usable_area": "143",
+    "house_type": "三居",
+    "house_style": "美式"  
+  },{
+    "id": 2,
+    "title": "打造极致的北欧新家",
+    "imgurl": "/static/img/diary-big02.png",
+    "user_img": "/static/img/diary-small02.png",
+    "house_money": "47.2",
+    "usable_area": "169",
+    "house_type": "北欧",
+    "house_style": "简约"  
+  },{
+    "id": 3,
+    "title": "三口之家----温馨小美式！！！",
+    "imgurl": "/static/img/diary-big01.png",
+    "user_img": "/static/img/diary-small01.png",
+    "house_money": "42.3",
+    "usable_area": "143",
+    "house_type": "三居",
+    "house_style": "美式"  
+  },{
+    "id": 4,
+    "title": "打造极致的北欧新家",
+    "imgurl": "/static/img/diary-big02.png",
+    "user_img": "/static/img/diary-small02.png",
+    "house_money": "47.2",
+    "usable_area": "169",
+    "house_type": "北欧",
+    "house_style": "简约"  
+  }]
+}
+
+
+
+
+

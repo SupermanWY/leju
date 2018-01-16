@@ -12,11 +12,11 @@
           <img src="/static/img/design.png" class="img-item">
           <div class="text-item">找设计</div>
         </div>
-        <div class="item-nav">
+        <router-link class="item-nav" tag="div" to="/diary">
           <img src="/static/img/diray.png" class="img-item">
           <div class="text-item">看日记</div>
-        </div>
-        <router-link class="item-nav" to="/questions">
+        </router-link>
+        <router-link class="item-nav" tag="div" to="/questions">
           <img src="/static/img/question.png" class="img-item">
           <div class="text-item">提问题</div>
         </router-link>

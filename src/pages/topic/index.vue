@@ -50,12 +50,7 @@
   }
 </script>
 <style scoped lang="stylus">
-  .title
-    line-height: .86rem
-    text-align: center
-    font-size: .34rem
-    color: #333
-    border-color: #f0f0f0
+  @import '../../assets/styles/common/header.styl';
   .foot
     bottom: 0;
     height: .98rem;

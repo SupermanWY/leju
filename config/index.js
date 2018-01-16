@@ -25,6 +25,12 @@ module.exports = {
         '/user/register/': '/static/register.json'
         }
       },
+      '/diary': {
+        target: 'http://localhost:8080',
+        pathRewrite: {
+        '/diary/': '/static/diary.json'
+        }
+      },
       '/topic': {
         target: 'http://localhost:8080',
         pathRewrite: {

@@ -7,7 +7,8 @@ import Inspiration from '@/pages/inspiration/index'
 import My from '@/pages/my'
 import Topic from '@/pages/topic/index'
 import Search from '@/pages/search/index'
-
+import Diary from '@/pages/diary/index'
+import Questions from '@/pages/questions/index'
 Vue.use(Router)
 
 export default new Router({
@@ -46,6 +47,16 @@ export default new Router({
       path: '/search',
       name: 'search',
       component: Search
+    },
+    {
+      path: '/diary',
+      name: 'diary',
+      component: Diary
+    },
+    {
+      path: '/questions',
+      name: 'questions',
+      component: Questions
     }
   ]
 })

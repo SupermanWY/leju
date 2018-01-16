@@ -43,7 +43,6 @@
       },
       handleGetDiaryInfoSucc (res) {
         this.diaryInfo = res.data.data
-        console.log(res)
       },
       handleGetDiaryInfoErr () {
         console.log('获取diary失败')

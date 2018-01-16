@@ -36,6 +36,12 @@ module.exports = {
         pathRewrite: {
         '/topic/': '/static/topic.json'
         }
+      },
+      '/problem': {
+        target: 'http://localhost:8080',
+        pathRewrite: {
+        '/problem/': '/static/questions.json'
+        }
       }
     },
 

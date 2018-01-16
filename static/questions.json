@@ -1,0 +1,248 @@
+{
+	"ret": true,
+  "data": {
+    "questions": [{
+      "id": "0001",
+      "username": "米芳芳",
+      "imgUrl": "/static/img/questions01.png",
+      "question": "厨房灯要放在那里？",
+      "time": "2017-10-27",
+      "style": "厨房",
+      "replyCount": 3,
+      "browseCount": 247,
+      "response": [{
+        "id": "00001",
+        "username": "回答人用户名",
+        "headImg": "回答人头像",
+        "content": "回答内容"
+      },{
+        "id": "00002",
+        "username": "回答人用户名",
+        "headImg": "回答人头像",
+        "content": "回答内容"
+      },{
+        "id": "00003",
+        "username": "回答人用户名",
+        "headImg": "回答人头像",
+        "content": "回答内容"
+      },{
+        "id": "00004",
+        "username": "回答人用户名",
+        "headImg": "回答人头像",
+        "content": "回答内容"
+      }]
+    },{
+      "id": "0001",
+      "username": "米芳芳",
+      "imgUrl": "/static/img/questions01.png",
+      "question": "厨房灯要放在那里？",
+      "time": "2017-10-27",
+      "style": "厨房",
+      "replyCount": 3,
+      "browseCount": 247,
+      "response": [{
+        "id": "00001",
+        "username": "回答人用户名",
+        "headImg": "回答人头像",
+        "content": "回答内容"
+      },{
+        "id": "00002",
+        "username": "回答人用户名",
+        "headImg": "回答人头像",
+        "content": "回答内容"
+      },{
+        "id": "00003",
+        "username": "回答人用户名",
+        "headImg": "回答人头像",
+        "content": "回答内容"
+      },{
+        "id": "00004",
+        "username": "回答人用户名",
+        "headImg": "回答人头像",
+        "content": "回答内容"
+      }]
+    },{
+      "id": "0002",
+      "username": "米芳芳",
+      "imgUrl": "/static/img/questions01.png",
+      "question": "厨房灯要放在那里？",
+      "time": "2017-10-27",
+      "style": "厨房",
+      "replyCount": 3,
+      "browseCount": 247,
+      "response": [{
+        "id": "00001",
+        "username": "回答人用户名",
+        "headImg": "回答人头像",
+        "content": "回答内容"
+      },{
+        "id": "00002",
+        "username": "回答人用户名",
+        "headImg": "回答人头像",
+        "content": "回答内容"
+      },{
+        "id": "00003",
+        "username": "回答人用户名",
+        "headImg": "回答人头像",
+        "content": "回答内容"
+      },{
+        "id": "00004",
+        "username": "回答人用户名",
+        "headImg": "回答人头像",
+        "content": "回答内容"
+      }]
+    },{
+      "id": "0003",
+      "username": "米芳芳",
+      "imgUrl": "/static/img/questions01.png",
+      "question": "厨房灯要放在那里？",
+      "time": "2017-10-27",
+      "style": "厨房",
+      "replyCount": 3,
+      "browseCount": 247,
+      "response": [{
+        "id": "00001",
+        "username": "回答人用户名",
+        "headImg": "回答人头像",
+        "content": "回答内容"
+      },{
+        "id": "00002",
+        "username": "回答人用户名",
+        "headImg": "回答人头像",
+        "content": "回答内容"
+      },{
+        "id": "00003",
+        "username": "回答人用户名",
+        "headImg": "回答人头像",
+        "content": "回答内容"
+      },{
+        "id": "00004",
+        "username": "回答人用户名",
+        "headImg": "回答人头像",
+        "content": "回答内容"
+      }]
+    },{
+      "id": "0004",
+      "username": "米芳芳",
+      "imgUrl": "/static/img/questions01.png",
+      "question": "厨房灯要放在那里？",
+      "time": "2017-10-27",
+      "style": "厨房",
+      "replyCount": 3,
+      "browseCount": 247,
+      "response": [{
+        "id": "00001",
+        "username": "回答人用户名",
+        "headImg": "回答人头像",
+        "content": "回答内容"
+      },{
+        "id": "00002",
+        "username": "回答人用户名",
+        "headImg": "回答人头像",
+        "content": "回答内容"
+      },{
+        "id": "00003",
+        "username": "回答人用户名",
+        "headImg": "回答人头像",
+        "content": "回答内容"
+      },{
+        "id": "00004",
+        "username": "回答人用户名",
+        "headImg": "回答人头像",
+        "content": "回答内容"
+      }]
+    },{
+      "id": "0005",
+      "username": "米芳芳",
+      "imgUrl": "/static/img/questions01.png",
+      "question": "厨房灯要放在那里？",
+      "time": "2017-10-27",
+      "style": "厨房",
+      "replyCount": 3,
+      "browseCount": 247,
+      "response": [{
+        "id": "00001",
+        "username": "回答人用户名",
+        "headImg": "回答人头像",
+        "content": "回答内容"
+      },{
+        "id": "00002",
+        "username": "回答人用户名",
+        "headImg": "回答人头像",
+        "content": "回答内容"
+      },{
+        "id": "00003",
+        "username": "回答人用户名",
+        "headImg": "回答人头像",
+        "content": "回答内容"
+      },{
+        "id": "00004",
+        "username": "回答人用户名",
+        "headImg": "回答人头像",
+        "content": "回答内容"
+      }]
+    },{
+      "id": "0006",
+      "username": "米芳芳",
+      "imgUrl": "/static/img/questions01.png",
+      "question": "厨房灯要放在那里？",
+      "time": "2017-10-27",
+      "style": "厨房",
+      "replyCount": 3,
+      "browseCount": 247,
+      "response": [{
+        "id": "00001",
+        "username": "回答人用户名",
+        "headImg": "回答人头像",
+        "content": "回答内容"
+      },{
+        "id": "00002",
+        "username": "回答人用户名",
+        "headImg": "回答人头像",
+        "content": "回答内容"
+      },{
+        "id": "00003",
+        "username": "回答人用户名",
+        "headImg": "回答人头像",
+        "content": "回答内容"
+      },{
+        "id": "00004",
+        "username": "回答人用户名",
+        "headImg": "回答人头像",
+        "content": "回答内容"
+      }]
+    },{
+      "id": "0007",
+      "username": "米芳芳",
+      "imgUrl": "/static/img/questions01.png",
+      "question": "厨房灯要放在那里？",
+      "time": "2017-10-27",
+      "style": "厨房",
+      "replyCount": 3,
+      "browseCount": 247,
+      "response": [{
+        "id": "00001",
+        "username": "回答人用户名",
+        "headImg": "回答人头像",
+        "content": "回答内容"
+      },{
+        "id": "00002",
+        "username": "回答人用户名",
+        "headImg": "回答人头像",
+        "content": "回答内容"
+      },{
+        "id": "00003",
+        "username": "回答人用户名",
+        "headImg": "回答人头像",
+        "content": "回答内容"
+      },{
+        "id": "00004",
+        "username": "回答人用户名",
+        "headImg": "回答人头像",
+        "content": "回答内容"
+      }]
+    }]
+  }
+}
+
+      

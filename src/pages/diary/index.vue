@@ -1,7 +1,7 @@
 <template>
   <div class="diary">
     <div class="title border-bottom">
-      <router-link to="/" tag="span" class="iconfont icon">&#xe6b7;</router-link>看日记
+      <router-link to="/" tag="span"class="iconfont icon" >&#xe6b7;</router-link>看日记
     </div>
     <div class="wrapper" ref="wrapper">
       <ul class="main">

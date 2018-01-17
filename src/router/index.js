@@ -5,6 +5,7 @@ import Login from '@/pages/login/login'
 import Register from '@/pages/login/register'
 import Inspiration from '@/pages/inspiration/index'
 import My from '@/pages/my'
+import TopicSubpage from '@/pages/topic/topicsubpage'
 import Topic from '@/pages/topic/index'
 import Search from '@/pages/search/index'
 import Diary from '@/pages/diary/index'
@@ -57,6 +58,11 @@ export default new Router({
       path: '/questions',
       name: 'questions',
       component: Questions
+    },
+    {
+      path: '/topicsubpage/:id',
+      name: 'topicsubpage',
+      component: TopicSubpage
     }
   ]
 })

@@ -10,6 +10,7 @@
           <p class="topicsubpage-desc">{{topicsubpage.desc}}</p>
           <p class="topicsubpage-replaycount">回答 {{topicsubpage.replaycount}}</p>
         </li>
+        <li class="margin"></li>
         <li class="subtopic-content border-bottom" 
             v-for="(item,index) in topicsubpage.replaycontent" 
             :key="item.id" 
@@ -92,11 +93,10 @@
     flex-direction: column
     .main
       flex: 1
-      padding: 0 .21rem
       overflow:hidden
       .subpage-container
         .subpage-title
-          padding: .42rem 0 .41rem 0
+          padding: .42rem .21rem .41rem .21rem
           color: #333
           .topicsubpage-title
             font-size: .34rem
@@ -106,11 +106,16 @@
             margin: .3rem 0  .6rem 0
           .topicsubpage-replaycount
             font-size: .22rem
+        .margin
+          height: .9rem
+          background: #f5f5f5
         .padding-top
           padding-top: .3rem
         .padding-tops
           padding-top: .41rem
         .subtopic-content
+          margin: 0 .21rem
+          padding-bottom: .44rem
           &::before
             border-color: #f0f0f0
           .subtopic-user

@@ -4,14 +4,14 @@
       <index-header></index-header>
       <swiper :bannerInfo='bannerInfo'></swiper>
       <div class="nav">
-        <div class="item-nav">
+        <router-link class="item-nav" to="/decorate" tag="div">
           <img src="/static/img/decorate.png" class="img-item">
-          <router-link class="text-item" to="/decorate" tag="div">学装修</router-link>
-        </div>
-        <div class="item-nav">
+          <div class="text-item" tag="div">学装修</div>
+        </router-link>
+        <router-link class="item-nav" to="/design" tag="div">
           <img src="/static/img/design.png" class="img-item">
           <div class="text-item">找设计</div>
-        </div>
+        </router-link>
         <div class="item-nav">
           <img src="/static/img/diray.png" class="img-item">
           <div class="text-item">看日记</div>

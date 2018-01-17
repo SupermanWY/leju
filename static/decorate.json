@@ -1,0 +1,30 @@
+{
+  "ret": true,
+  "data": {
+    "decorate": [{
+      "id": "0001",
+      "imgUrl": "/static/img/dec.png",
+      "desc": "阿发的发生地方撒旦",
+      "headImg": "/static/img/dec.png",
+      "username": "士大夫"
+    },{
+      "id": "0002",
+      "imgUrl": "/static/img/dec.png",
+      "desc": "阿发的发生地方撒旦",
+      "headImg": "/static/img/dec.png",
+      "username": "士大夫"
+    },{
+      "id": "0003",
+      "imgUrl": "/static/img/dec.png",
+      "desc": "阿发的发生地方撒旦",
+      "headImg": "/static/img/dec.png",
+      "username": "士大夫"
+    },{
+      "id": "0004",
+      "imgUrl": "/static/img/dec.png",
+      "desc": "阿发的发生地方撒旦",
+      "headImg": "/static/img/dec.png",
+      "username": "士大夫"
+    }]
+  }
+}

@@ -30,6 +30,18 @@ module.exports = {
         pathRewrite: {
         '/topic/': '/static/topic.json'
         }
+      },
+      '/decorate': {
+        target: 'http://localhost:8080',
+        pathRewrite: {
+        '/decorate/': '/static/decorate.json'
+        }
+      },
+      '/design': {
+        target: 'http://localhost:8080',
+        pathRewrite: {
+        '/design/': '/static/design.json'
+        }
       }
     },
 

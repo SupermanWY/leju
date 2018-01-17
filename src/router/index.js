@@ -8,6 +8,7 @@ import My from '@/pages/my'
 import Topic from '@/pages/topic/index'
 import Search from '@/pages/search/index'
 import Decorate from '@/pages/decorate/index'
+import Design from '@/pages/design/index'
 
 Vue.use(Router)
 
@@ -16,14 +17,7 @@ export default new Router({
     {
       path: '/',
       name: 'index',
-      component: Index,
-      children: [
-        {
-          path: 'decorate',
-          name: 'decorate',
-          component: Decorate
-        }
-      ]
+      component: Index
     },
     {
       path: '/login',
@@ -59,6 +53,11 @@ export default new Router({
       path: '/decorate',
       name: 'decorate',
       component: Decorate
+    },
+    {
+      path: '/design',
+      name: 'design',
+      component: Design
     }
   ]
 })

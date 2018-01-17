@@ -29,8 +29,6 @@
 		"topic": [{
 			"id": "00001",
 			"title": "你家什么地方缺插座？",
-			"messageUrl": "/static/img/xx.png",
-			"bgUrl": "/static/img/topicbg.png",
 			"desc": "你家的插座够用吗？如果重新规划，你会在哪些地方增设插座？",
 			"imgUrl": [{
 				"id": "001",
@@ -49,8 +47,6 @@
 		},{
 			"id": "00002",
 			"title": "你家什么地方缺插座？",
-			"messageUrl": "/static/img/xx.png",
-			"bgUrl": "/static/img/topicbg.png",
 			"desc": "你家的插座够用吗？如果重新规划，你会在哪些地方增设插座？",
 			"imgUrl": [{
 				"id": "001",
@@ -69,8 +65,6 @@
 		},{
 			"id": "00003",
 			"title": "你家什么地方缺插座？",
-			"messageUrl": "/static/img/xx.png",
-			"bgUrl": "/static/img/topicbg.png",
 			"desc": "你家的插座够用吗？如果重新规划，你会在哪些地方增设插座？",
 			"imgUrl": [{
 				"id": "001",

@@ -1,0 +1,59 @@
+{
+	"ret": true,
+  "data": {
+    "topicsubpage": {
+      "title": "你是怎么利用走廊的？",
+      "desc": "很多人都视「走廊、过道」为鸡肋，苦于如何利用好它们。对于此，你有什么妙招？快来分享你的经验吧~",
+      "replaycount": 198,
+      "replaycontent": [{
+        "id": "001",
+        "username": "小贡贡",
+        "imgUrl": "/static/img/topicsubpage-title01.png",
+        "city": "广东 广州",
+        "desc": "利用了走廊的一小面墙打满了搁板，一直梦想着能有一面书墙平常书读的不够多，能有一小面墙也是好的，正好两个卧室之间的墙有一点厚度，淘宝定制的18宽的搁板放书正好宽一点的杂志可以背着墙放。",
+        "img": [{
+          "id": "0001",
+          "imgUrl": "/static/img/topicsubpage-img01.png"
+        },{
+          "id": "0002",
+          "imgUrl": "/static/img/topicsubpage-img02.png"
+        },{
+          "id": "0003",
+          "imgUrl": "/static/img/topicsubpage-img03.png"
+        }]
+      },{
+        "id": "002",
+        "username": "小贡贡",
+        "imgUrl": "/static/img/topicsubpage-title01.png",
+        "city": "广东 广州",
+        "desc": "利用了走廊的一小面墙打满了搁板，一直梦想着能有一面书墙平常书读的不够多，能有一小面墙也是好的，正好两个卧室之间的墙有一点厚度，淘宝定制的18宽的搁板放书正好宽一点的杂志可以背着墙放。",
+        "img": [{
+          "id": "0001",
+          "imgUrl": "/static/img/topicsubpage-img01.png"
+        },{
+          "id": "0002",
+          "imgUrl": "/static/img/topicsubpage-img02.png"
+        },{
+          "id": "0003",
+          "imgUrl": "/static/img/topicsubpage-img03.png"
+        }]
+      },{
+        "id": "003",
+        "username": "小贡贡",
+        "imgUrl": "/static/img/topicsubpage-title01.png",
+        "city": "广东 广州",
+        "desc": "利用了走廊的一小面墙打满了搁板，一直梦想着能有一面书墙平常书读的不够多，能有一小面墙也是好的，正好两个卧室之间的墙有一点厚度，淘宝定制的18宽的搁板放书正好宽一点的杂志可以背着墙放。",
+        "img": [{
+          "id": "0001",
+          "imgUrl": "/static/img/topicsubpage-img01.png"
+        },{
+          "id": "0002",
+          "imgUrl": "/static/img/topicsubpage-img02.png"
+        },{
+          "id": "0003",
+          "imgUrl": "/static/img/topicsubpage-img03.png"
+        }]
+      }]
+    }
+  }
+}

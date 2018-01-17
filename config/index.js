@@ -34,6 +34,7 @@ module.exports = {
       '/topic': {
         target: 'http://localhost:8080',
         pathRewrite: {
+        '/topic/subpage/': '/static/topicsubpage.json',
         '/topic/': '/static/topic.json'
         }
       },

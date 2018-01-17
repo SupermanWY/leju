@@ -60,6 +60,8 @@
         display: flex
         justify-content: space-between
         padding-bottom: .3rem
+        &::before
+          border-color: #f0f0f0
         .questions-img-container
           line-height: .5rem
           .questions-img

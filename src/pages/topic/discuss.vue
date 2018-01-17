@@ -7,10 +7,14 @@
     <div class="wrapper" ref="wrapper">
       <div class="discuss">
         <ul class="content">
-          <li class="discuss-content" v-for="item in discussInfo" :key="item.id">
+          <router-link :to="/topicsubpage/+item.id" 
+                       tag="li" 
+                       class="discuss-content" 
+                       v-for="item in discussInfo" 
+                       :key="item.id">
             <img class="discuss-img" :src="item.imgUrl">
             <p class="discuss-desc">{{item.desc}}</p>
-          </li>
+          </router-link>
         </ul>
       </div>
     </div>   

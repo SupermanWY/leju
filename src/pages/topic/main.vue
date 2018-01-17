@@ -45,7 +45,8 @@
       display: flex
       justify-content: space-between
       padding: .2rem
-      border-color: #f0f0f0
+      &::before
+        border-color: #f0f0f0
       .discuss-title-desc
         font-size: .34rem
         color: #666

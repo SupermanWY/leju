@@ -46,7 +46,7 @@
     },
     methods: {
       getData () {
-        axios.get('/static/inspiration.json?style=' + this.style)
+        axios.get('/static/inspiration.json/?style=' + this.style)
            .then(this.handleGetDataSucc)
       },
       handleGetDataSucc (res) {

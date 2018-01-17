@@ -4,14 +4,14 @@
       <index-header></index-header>
       <swiper :bannerInfo='bannerInfo'></swiper>
       <div class="nav">
-        <div class="item-nav">
+        <router-link class="item-nav" to="/decorate" tag="div">
           <img src="/static/img/decorate.png" class="img-item">
-          <div class="text-item">学装修</div>
-        </div>
-        <div class="item-nav">
+          <div class="text-item" tag="div">学装修</div>
+        </router-link>
+        <router-link class="item-nav" to="/design" tag="div">
           <img src="/static/img/design.png" class="img-item">
           <div class="text-item">找设计</div>
-        </div>
+        </router-link>
         <router-link class="item-nav" tag="div" to="/diary">
           <img src="/static/img/diray.png" class="img-item">
           <div class="text-item">看日记</div>
@@ -73,11 +73,6 @@
       },
       handleGetDataErr () {
         console.log('请求失败')
-      }
-    },
-    activated () {
-      if (this.scroll) {
-        this.scroll.refresh()
       }
     }
   }

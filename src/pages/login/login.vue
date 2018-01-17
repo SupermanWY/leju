@@ -58,7 +58,8 @@
         if (this.username === '' || this.password === '') {
           this.$refs.toast.toastShow('用户名或密码不能为空')
         } else {
-          axios.get('/user/login/', {
+          console.log(this.username, this.password)
+          axios.post('/user/login/', {
             username: this.username,
             password: this.password
           }).then(this.handleLoginSucc.bind(this))

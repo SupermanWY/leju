@@ -9,6 +9,9 @@ import Topic from '@/pages/topic/index'
 import Search from '@/pages/search/index'
 import Diary from '@/pages/diary/index'
 import Questions from '@/pages/questions/index'
+import Decorate from '@/pages/decorate/index'
+import Design from '@/pages/design/index'
+
 Vue.use(Router)
 
 export default new Router({
@@ -57,6 +60,16 @@ export default new Router({
       path: '/questions',
       name: 'questions',
       component: Questions
+    },
+    {
+      path: '/decorate',
+      name: 'decorate',
+      component: Decorate
+    },
+    {
+      path: '/design',
+      name: 'design',
+      component: Design
     }
   ]
 })

@@ -5,10 +5,10 @@
       {{userInfo.username || '用户名'}}
     </div>
     <ul class="list" @click="handleListClick">
-      <li class="item-list border-top">
+      <router-link class="item-list border-top" tag="li" to="/personalpage">
         <span class="iconfont icon">&#xe625;</span>
         个人主页
-      </li>
+      </router-link>
       <li class="item-list border-top">
         <span class="iconfont icon">&#xe7a8;</span>
         我的消息
@@ -61,9 +61,11 @@
         }
       }
     },
-    mounted () {
+    created () {
       if (this.userInfo.state === 2) {
         this.isLogin = true
+      } else {
+        this.$router.push('/login')
       }
     }
   }

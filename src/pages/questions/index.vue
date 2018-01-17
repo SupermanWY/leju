@@ -3,19 +3,22 @@
     <div class="title border-bottom">
       <router-link to="/" tag="span" class="iconfont icon">&#xe6b7;</router-link>提问题
     </div>
-    <List :questions="questionsInfo"></List>
+    <List :questions="questionsInfo" v-if="isLogin"></List>
+    <div class="login-first" v-if="!isLogin">请先登录</div>
   </div>
 </template>
 <script>
   import axios from 'axios'
   import List from './list'
+  import { mapState } from 'vuex'
 
   export default {
     name: 'queations',
 
     data () {
       return {
-        questionsInfo: []
+        questionsInfo: [],
+        isLogin: false
       }
     },
 
@@ -24,7 +27,14 @@
     },
 
     created () {
-      this.getQuestionsData()
+      if (this.userInfo.state === 2) {
+        this.isLogin = true
+        this.getQuestionsData()
+      }
+    },
+
+    computed: {
+      ...mapState(['userInfo'])
     },
 
     methods: {
@@ -34,7 +44,7 @@
         .catch(this.handleGetQuestionsErr.bind(this))
       },
       handleGetQuestionsSucc (res) {
-        this.questionsInfo = res.data.data.questions
+        this.questionsInfo = res.data.data.question
       },
       handleGetQuestionsErr () {
         console.log('获取questions失败')
@@ -44,6 +54,10 @@
   }
 </script>
 <style scoped lang="stylus">
+  .login-first
+    font-size: .5rem
+    text-align: center
+    margin-top: 3.5rem
   .questions
     position: absolute
     top: 0
@@ -54,7 +68,7 @@
     flex-direction: column
 
 
-	@import '../../assets/styles/common/header.styl'
+  @import '../../assets/styles/common/header.styl'
 
 
 </style>

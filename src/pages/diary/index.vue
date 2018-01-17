@@ -3,7 +3,7 @@
     <div class="title border-bottom">
       <router-link to="/" tag="span" class="iconfont icon">&#xe6b7;</router-link>看日记
     </div>
-    <div class="wrapper" ref="wrapper">
+    <div class="wrapper" ref="wrapper" v-show="isLogin">
       <ul class="main">
         <li class="diray-list" v-for="item in diaryInfo">
           <div class="img-container">
@@ -15,24 +15,25 @@
         </li>
       </ul>
     </div>
-    
+    <div class="login-first" v-if="!isLogin">请先登录</div>
   </div>
 </template>
 <script>
   import axios from 'axios'
   import BScroll from 'better-scroll'
+  import { mapState } from 'vuex'
   export default {
     name: 'diary',
 
     data () {
       return {
-        diaryInfo: []
+        diaryInfo: [],
+        isLogin: false
       }
     },
 
-    mounted () {
-      this.getDiaryInfo()
-      this.careteScroller()
+    computed: {
+      ...mapState(['userInfo'])
     },
 
     methods: {
@@ -56,11 +57,24 @@
       diaryInfo () {
         this.scroller.refresh()
       }
+    },
+
+    mounted () {
+      if (this.userInfo.state === 2) {
+        this.isLogin = true
+        this.getDiaryInfo()
+        this.careteScroller()
+      }
     }
+
   }
 </script>
 <style scoped lang="stylus">
   @import '../../assets/styles/common/header.styl';
+  .login-first
+    font-size: .5rem
+    text-align: center
+    margin-top: 3.5rem
   .diary
     position: absolute
     top: 0
@@ -80,6 +94,7 @@
             position: relative
             height: 0
             padding-bottom: 55.42%
+            overflow: hidden
             .diary-big-img
               width: 100%
             .diary-small-img

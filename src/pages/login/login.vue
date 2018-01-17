@@ -13,7 +13,7 @@
           <input type="text" placeholder="请输入用户名/手机号" class="text-input" v-model="username">
         </div>
         <div class="input-container border-bottom">
-          <input type="text" placeholder="请输入密码" class="text-input" v-model="password">
+          <input type="password" placeholder="请输入密码" class="text-input" v-model="password">
         </div>
         <div class="btn-container border" @click="handleLoginClick">
           <input type="button" class="btn-input" value="登录">
@@ -59,7 +59,7 @@
           this.$refs.toast.toastShow('用户名或密码不能为空')
         } else {
           console.log(this.username, this.password)
-          axios.post('/user/login/', {
+          axios.get('/user/login/', {
             username: this.username,
             password: this.password
           }).then(this.handleLoginSucc.bind(this))

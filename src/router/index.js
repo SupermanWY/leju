@@ -11,6 +11,7 @@ import Diary from '@/pages/diary/index'
 import Questions from '@/pages/questions/index'
 import Decorate from '@/pages/decorate/index'
 import Design from '@/pages/design/index'
+import Personalpage from '@/pages/my/personalpage'
 
 Vue.use(Router)
 
@@ -70,6 +71,11 @@ export default new Router({
       path: '/design',
       name: 'design',
       component: Design
+    },
+    {
+      path: '/personalpage',
+      name: 'personalpage',
+      component: Personalpage
     }
   ]
 })

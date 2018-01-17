@@ -98,6 +98,7 @@
     text-align: center
     font-size: .24rem
     color: #6dd5a7
+    overflow: hidden
     &::before
       border-color: #6dd5a7
       border-radius: .1rem

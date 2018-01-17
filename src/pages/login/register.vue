@@ -18,7 +18,7 @@
        <input type="button" class="verification getVerification"  value="获取验证码" @click="handleGetCode($refs.username.value)">
      </label>
       <label class="register-container border-bottom">
-        <input type="text" class="register-input" placeholder="请输入密码" ref="password">
+        <input type="password" class="register-input" placeholder="请输入密码" ref="password">
       </label>
       <label class="register-container register-submit border"> 
         <input type="button" class="submit" value="注册" @click="handleSubmitClick($refs.username.value,$refs.verification.value,$refs.password.value,)">

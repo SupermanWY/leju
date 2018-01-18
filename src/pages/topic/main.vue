@@ -7,7 +7,7 @@
     <ul class="topic-list">
       <li class="topic-content" v-for="item in topicInfo">
         <div class="topic-bg-container">
-          <img class="topic-bg" :src="item.bgUrl">
+          <img class="topic-bg" src="../../../static/img/topicbg.png">
         </div>
         <div class="topic-text">
           <span class="iconfont microphone">&#xe642;</span>
@@ -20,7 +20,7 @@
                 <img class="user-img" :src="img.imgUrl">
             </div>
             <div class="message-con">
-              <img :src="item.messageUrl" class="message-img">
+              <img src="../../../static/img/xx.png" class="message-img">
             </div>
             <span class="iconfont discusscount">{{item.discusscount}}人参加讨论&#xe65e;</span>
           </div>
@@ -45,7 +45,8 @@
       display: flex
       justify-content: space-between
       padding: .2rem
-      border-color: #f0f0f0
+      &::before
+        border-color: #f0f0f0
       .discuss-title-desc
         font-size: .34rem
         color: #666

@@ -2,7 +2,7 @@
   <div>
     <div class="header border-bottom">
       <router-link class="iconfont back" to="/">&#xe605;</router-link>
-      学装修
+      找设计
     </div>
     <div class="list">
       <div class="item" v-for="item in listInfo" :key="item.id">

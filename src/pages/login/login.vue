@@ -20,7 +20,7 @@
         </div>
         <div class="password">
           <div class="remember-pwd">记住密码</div>
-          <div class="forget-pwd">忘记密码?</div>
+          <router-link to="/forgotpassword" tag="div" class="forget-pwd">忘记密码?</router-link>
         </div>
       </div>
     </div>
@@ -145,6 +145,7 @@
           font-size: .32rem;
           border-radius: .2rem;
           background: #fff;
+          color: #32b379
       .password
         display: flex;
         justify-content: space-between;

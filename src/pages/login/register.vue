@@ -52,7 +52,7 @@
           this.passwordFlag = false
         }
         if (!this.passwordFlag) {
-          this.$refs.toast.toastShow('密码必须是8-16位字母和数')
+          this.$refs.toast.toastShow('密码必须是8-16位字母和数字')
         }
         if (this.passwordFlag && this.userFlag && verification) {
           axios.post('/user/register/', {
@@ -168,6 +168,7 @@
         width: 1.66rem
         background: #fff
         padding-top: .54rem
+        color: #999
     .register-submit
       height: 0.78rem
       margin-top: .6rem
@@ -181,4 +182,5 @@
         height: 100%
         width: 100%
         background: #fff
+        color: #32b379
 </style>

@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Index from '@/pages/home/index'
 import Login from '@/pages/login/login'
 import Register from '@/pages/login/register'
+import ForgotPassword from '@/pages/login/forgotpassword'
 import Inspiration from '@/pages/inspiration/index'
 import My from '@/pages/my'
 import TopicSubpage from '@/pages/topic/topicsubpage'
@@ -31,6 +32,11 @@ export default new Router({
       path: '/register',
       name: 'register',
       component: Register
+    },
+    {
+      path: '/forgotpassword',
+      name: 'forgotpassword',
+      component: ForgotPassword
     },
     {
       path: '/inspiration',

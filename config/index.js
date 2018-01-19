@@ -55,6 +55,18 @@ module.exports = {
         pathRewrite: {
         '/design/': '/static/design.json'
         }
+      },
+      '/forgotpassword': {
+        target: 'http://localhost:8080',
+        pathRewrite: {
+        '/forgotpassword/': '/static/forgotpassword.json'
+        }
+      },
+      '/resetpassword': {
+        target: 'http://localhost:8080',
+        pathRewrite: {
+        '/resetpassword/': '/static/resetpassword.json'
+        }
       }
     },
 

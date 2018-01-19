@@ -1,6 +1,6 @@
 <template>
   <div class="footer border-top">
-    <router-link class="nav" tag="div" to="/">
+    <router-link class="nav" tag="div" to="/index">
       <div class="icon-nav iconfont">&#xe653;</div>
       <div class="text-nav">首页</div>
     </router-link>

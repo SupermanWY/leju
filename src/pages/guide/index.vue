@@ -15,7 +15,7 @@
         <div class="top">分享家具生活</div>
         <div class="bottom">全民图片征集、热门话题讨论，别人踩坑你绕行</div>
       </swiper-slide>
-      <swiper-slide>
+      <swiper-slide ref="a">
         <div class="img-box">
           <img alt="乐居时尚装修" class="img" src="/static/img/guide3.png">
         </div>

@@ -1,22 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Index from '@/pages/home/index'
-import Login from '@/pages/login/login'
-import Register from '@/pages/login/register'
-import ForgotPassword from '@/pages/login/forgotpassword'
-import Inspiration from '@/pages/inspiration/index'
-import My from '@/pages/my'
-import TopicSubpage from '@/pages/topic/topicsubpage'
-import Topic from '@/pages/topic/index'
-import Search from '@/pages/search/index'
-import Diary from '@/pages/diary/index'
-import Questions from '@/pages/questions/index'
-import Decorate from '@/pages/decorate/index'
-import Design from '@/pages/design/index'
-import Personalpage from '@/pages/my/personalpage'
-import Setting from '@/pages/my/setting'
-import FindPwd from '@/pages/login/findPwd'
-import Guide from '@/pages/guide'
 
 Vue.use(Router)
 
@@ -38,87 +21,82 @@ export default new Router({
     {
       path: '/index',
       name: 'index',
-      component: Index
+      component: () => import('@/pages/home/index')
     },
     {
       path: '/guide',
       name: 'guide',
-      component: Guide
+      component: () => import('@/pages/guide')
     },
     {
       path: '/login',
       name: 'login',
-      component: Login
+      component: () => import('@/pages/login/login')
     },
     {
       path: '/register',
       name: 'register',
-      component: Register
+      component: () => import('@/pages/login/register')
     },
     {
       path: '/forgotpassword',
       name: 'forgotpassword',
-      component: ForgotPassword
+      component: () => import('@/pages/login/forgotpassword')
     },
     {
       path: '/inspiration',
       name: 'inspiration',
-      component: Inspiration
+      component: () => import('@/pages/inspiration/index')
     },
     {
       path: '/my',
       name: 'my',
-      component: My
+      component: () => import('@/pages/my')
     },
     {
       path: '/topic',
       name: 'topic',
-      component: Topic
+      component: () => import('@/pages/topic')
     },
     {
       path: '/search',
       name: 'search',
-      component: Search
+      component: () => import('@/pages/search')
     },
     {
       path: '/diary',
       name: 'diary',
-      component: Diary
+      component: () => import('@/pages/diary')
     },
     {
       path: '/questions',
       name: 'questions',
-      component: Questions
+      component: () => import('@/pages/questions')
     },
     {
       path: '/decorate',
       name: 'decorate',
-      component: Decorate
+      component: () => import('@/pages/decorate')
     },
     {
       path: '/design',
       name: 'design',
-      component: Design
+      component: () => import('@/pages/design')
     },
     {
       path: '/personalpage',
       name: 'personalpage',
-      component: Personalpage
+      component: () => import('@/pages/my/personalpage')
     },
     {
       path: '/topicsubpage/:id',
       name: 'topicsubpage',
-      component: TopicSubpage
+      component: () => import('@/pages/topic/topicsubpage')
     },
     {
       path: '/setting',
       name: 'setting',
-      component: Setting
-    },
-    {
-      path: '/findpwd',
-      name: 'findpwd',
-      component: FindPwd
+      component: () => import('@/pages/my/setting')
     }
   ]
 })

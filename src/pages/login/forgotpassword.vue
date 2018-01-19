@@ -49,7 +49,7 @@
         const usernameReg = /^1[3587]\d{9}$/
         if (usernameReg.test(username)) {
           this.userFlag = true
-          axios.get('/forgotpassword/', {
+          axios.post('/user/register/send/sms/', {
             username: username
           })
             .then(this.handleGetCodeSucc.bind(this))
@@ -82,7 +82,7 @@
         }
 
         if (this.userFlag && this.passwordFlag && verification && this.smsState) {
-          axios.get('/resetpassword/', {
+          axios.post('/user/mpw/', {
             username: username,
             verification: verification,
             password: password
@@ -92,7 +92,6 @@
         }
       },
       handleResetPassworSucc (res) {
-        console.log(res.data.state)
         if (res.data.state === 1) {
           this.$refs.toast.toastShow('重置密码成功,3s后跳到登录页')
           setTimeout(() => {

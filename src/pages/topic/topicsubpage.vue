@@ -24,8 +24,8 @@
           </div>
           <p class="subtopic-desc">{{item.desc}}</p>
           <div class="subtopic-imgs-container">
-            <div class="subtopic-img-container" v-for="img in item.img" :key="img.id"> 
-              <img class="subtopic-img":src="img.imgUrl"/>
+            <div class="subtopic-img-container" v-for="(img, index) in item.img" :key="index"> 
+              <img class="subtopic-img":src="img"/>
             </div>
           </div>
         </li>

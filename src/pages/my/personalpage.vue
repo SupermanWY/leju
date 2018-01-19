@@ -11,7 +11,7 @@
         <img :src="userInfo.icon" class="headImg" @click="handleImgClick" v-if="show">
         <el-upload
           class="avatar-uploader"
-          action="https://jsonplaceholder.typicode.com/posts/"
+          action="/user/add/information/"
           :show-file-list="false"
           :on-success="handleAvatarSuccess"
           :before-upload="beforeAvatarUpload"
@@ -93,6 +93,7 @@
         this.show = false
       },
       handleSubmitClick () {
+        console.log(this.file)
         var formData = new FormData()
         formData.append('nickname', this.username)
         formData.append('sex', this.radio)
@@ -100,7 +101,7 @@
         formData.append('birthday', this.birthday)
         formData.append('icon', this.file)
         formData.append('id', this.userInfo.id)
-        axios.get('/user/add/information/', formData)
+        axios.post('/user/add/information/', formData)
              .then(this.handleUpdateSucc.bind(this))
              .catch(this.handleUpdateErr.bind(this))
       },

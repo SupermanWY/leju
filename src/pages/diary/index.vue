@@ -59,7 +59,7 @@
       try {
         this.userInfo = JSON.parse(window.localStorage.userInfo)
       } catch (e) {}
-      if (this.userInfo.state === 2) {
+      if (this.userInfo.state) {
         this.isLogin = true
         this.getDiaryInfo()
         this.careteScroller()

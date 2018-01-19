@@ -6,9 +6,9 @@
     <div class="main" ref="main">
       <ul class="subpage-container">
         <li class="subpage-title">
-          <p class="topicsubpage-title">{{topicsubpage.title}}</p>
-          <p class="topicsubpage-desc">{{topicsubpage.desc}}</p>
-          <p class="topicsubpage-replaycount">回答 {{topicsubpage.replaycount}}</p>
+           <p class="topicsubpage-title">{{subpage.title}}</p>
+          <p class="topicsubpage-desc">{{subpage.desc}}</p>
+          <p class="topicsubpage-replaycount">回答 {{subpage.replaycount}}</p>
         </li>
         <li class="margin"></li>
         <li class="subtopic-content border-bottom" 
@@ -41,7 +41,8 @@
 
     data () {
       return {
-        topicsubpage: []
+        topicsubpage: [],
+        subpage: {}
       }
     },
 
@@ -67,6 +68,7 @@
       },
       handleGetTopicSubpageSucc (res) {
         this.topicsubpage = res.data.data
+        this.subpage = this.topicsubpage.topicsubpage
       },
       handleGetTopicSubpageErr () {
         console.log('获取topicsubpage失败')

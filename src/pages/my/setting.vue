@@ -44,7 +44,7 @@
     },
     methods: {
       handleLogout () {
-        axios.get('/logout/').then(this.handleLogoutSucc.bind(this))
+        axios.get('/user/logout/').then(this.handleLogoutSucc.bind(this))
       },
       handleLogoutSucc (res) {
         if (res.data.data.start === 1) {

@@ -92,7 +92,7 @@
         }
       },
       handleResetPassworSucc (res) {
-        if (res.data.state === 1) {
+        if (res.data.data.state === 1 || res.data.data.state === '1') {
           this.$refs.toast.toastShow('重置密码成功,3s后跳到登录页')
           setTimeout(() => {
             this.$router.push('/login')

@@ -9,13 +9,7 @@
         <span class="icon iconfont">&#xe765;</span>
         头像
         <img :src="userInfo.icon" class="headImg" @click="handleImgClick" v-if="show">
-        <el-upload
-          class="avatar-uploader"
-          action="/user/add/information/"
-          :show-file-list="false"
-          :on-success="handleAvatarSuccess"
-          :before-upload="beforeAvatarUpload"
-          v-if="!show">
+          <input type="file" ref="photo" v-if="!show" class="photo"/>
           <img v-if="imageUrl" :src="imageUrl" class="avatar">
           <i v-else class="el-icon-plus avatar-uploader-icon"></i>
         </el-upload>
@@ -52,13 +46,18 @@
       </li>
       <li class="btn-item" @click="handleSubmitClick">提交</li>
     </ul>
+    <toast ref="toast"></toast>
   </div>
 </template>
 
 <script>
   import axios from 'axios'
+  import toast from '../../components/ui/toast'
   export default {
     name: 'personalpage',
+    components: {
+      toast
+    },
     data () {
       return {
         userInfo: '',
@@ -93,19 +92,26 @@
         this.show = false
       },
       handleSubmitClick () {
-        console.log(this.file)
         var formData = new FormData()
+        try {
+          let file = this.$refs.photo.files[0]
+          if (file.type !== 'image/jpeg') {
+            this.$refs.toast.toastShow('暂不支持此文件类型')
+          } else {
+            formData.append('icon', file)
+          }
+        } catch (e) {}
         formData.append('nickname', this.username)
         formData.append('sex', this.radio)
         formData.append('address', this.address)
         formData.append('birthday', this.birthday)
-        formData.append('icon', this.file)
         formData.append('id', this.userInfo.id)
         axios.post('/user/add/information/', formData)
              .then(this.handleUpdateSucc.bind(this))
              .catch(this.handleUpdateErr.bind(this))
       },
-      handleUpdateSucc () {
+      handleUpdateSucc (res) {
+        window.localStorage.userInfo = JSON.stringify(res.data.data)
         this.$router.push('/my')
       },
       handleUpdateErr () {
@@ -125,35 +131,12 @@
 </script>
 
 <style scoped lang="stylus">
-  .avatar-uploader
+  .photo
     float: right
-    height: 1rem
-    margin-top: .1rem
-    border-radius: 1rem
-    overflow: hidden
-  .avatar-uploader .el-upload {
-      border: 1px dashed #d9d9d9;
-      border-radius: 6px;
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
-    }
-    .avatar-uploader .el-upload:hover {
-      border-color: #409EFF;
-    }
-    .avatar-uploader-icon {
-      font-size: 28px;
-      color: #8c939d;
-      width: 1rem;
-      height: 1rem;
-      line-height: 1rem;
-      text-align: center;
-    }
-    .avatar {
-      width: 1rem;
-      height: 1rem;
-      display: block;
-    }
+    margin-top: .3rem
+    height: .9re
+    width: 3.5rem
+    background: #fff
   .header
     heigt: .86rem
     line-height: .86rem

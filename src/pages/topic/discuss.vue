@@ -10,9 +10,9 @@
           <router-link :to="/topicsubpage/+item.id" 
                        tag="li" 
                        class="discuss-content" 
-                       v-for="item in discussInfo" 
+                       v-for="(item, index) in discussInfo" 
                        :key="item.id">
-            <img class="discuss-img" :src="item.imgUrl">
+            <img class="discuss-img" :src="'/static/img/discuss0'+(index%2+1)+'.png'">
             <p class="discuss-desc">{{item.desc}}</p>
           </router-link>
         </ul>

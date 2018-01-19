@@ -30,7 +30,6 @@ export default new Router({
         if (!userInfo || userInfo === {}) {
           return '/guide'
         } else {
-          console.log(userInfo)
           return '/index'
         }
       }

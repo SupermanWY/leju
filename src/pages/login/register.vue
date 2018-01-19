@@ -15,7 +15,7 @@
         <div class="verification inputCode border-bottom">
           <input type="text" class="register-input"  placeholder="请输入验证码" ref="verification">
         </div>
-       <input type="button" class="verification getVerification"  value="获取验证码" @click="handleGetCode($refs.username.value)">
+       <input type="button" class="verification getVerification"  :value="btnValue" @click="handleGetCode($refs.username.value)">
      </label>
       <label class="register-container border-bottom">
         <input type="password" class="register-input" placeholder="请输入密码" ref="password">
@@ -23,6 +23,10 @@
       <label class="register-container register-submit border"> 
         <input type="button" class="submit" value="注册" @click="handleSubmitClick($refs.username.value,$refs.verification.value,$refs.password.value,)">
       </label>
+      <router-link class="look" to="/index">
+        随便看看
+        <span class="iconfont icon">&#xe65e;</span>
+      </router-link>
     </div>
     <toast ref="toast"></toast>
   </div>
@@ -40,7 +44,9 @@
       return {
         smsState: false,
         userFlag: false,
-        passwordFlag: false
+        passwordFlag: false,
+        btnValue: '获取验证码',
+        isSubmit: true
       }
     },
     methods: {
@@ -83,24 +89,37 @@
         this.$refs.toast.toastShow('请求失败')
       },
       handleGetCode (username) {
-        const usernameReg = /^1[3587]\d{9}$/
-        if (usernameReg.test(username)) {
-          this.userFlag = true
-        } else {
-          this.userFlag = false
-        }
-        if (!this.userFlag) {
-          this.$refs.toast.toastShow('请输入正确的手机号')
-        }
-        if (this.userFlag) {
-          axios.post('/user/register/send/sms/', {
-            username: username
-          })
-            .then(this.handleGetSmsSucc.bind(this))
-            .catch(this.handleGetSmsErr.bind(this))
+        if (this.isSubmit) {
+          const usernameReg = /^1[3587]\d{9}$/
+          if (usernameReg.test(username)) {
+            this.userFlag = true
+          } else {
+            this.userFlag = false
+          }
+          if (!this.userFlag) {
+            this.$refs.toast.toastShow('请输入正确的手机号')
+          }
+          if (this.userFlag) {
+            axios.post('/user/register/send/sms/', {
+              username: username
+            })
+              .then(this.handleGetSmsSucc.bind(this))
+              .catch(this.handleGetSmsErr.bind(this))
+          }
         }
       },
       handleGetSmsSucc (res) {
+        this.isSubmit = false
+        var time = 60
+        this.timer = setInterval(() => {
+          time--
+          this.btnValue = time + '秒后获取'
+          if (time === 0) {
+            clearInterval(this.timer)
+            this.isSubmit = true
+            this.btnValue = '请获取验证码'
+          }
+        }, 1000)
         this.smsState = res.data.data.state
       },
       handleGetSmsErr () {
@@ -160,6 +179,7 @@
           color: #ccc
       .verification
         float: left
+        color: #999999
       .inputCode 
         flex: 1
         &::before
@@ -181,4 +201,11 @@
         height: 100%
         width: 100%
         background: #fff
+  .look
+    margin-top: .24rem
+    font-size: .26rem
+    color: #32b379
+    text-decoration: underline
+    .icon
+      font-size: .24rem
 </style>

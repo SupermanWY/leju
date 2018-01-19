@@ -8,24 +8,29 @@
       <router-link class="item-list border-top" tag="li" to="/personalpage">
         <span class="iconfont icon">&#xe625;</span>
         个人主页
+        <span class="iconfont right-icon">&#xe65e;</span>
       </router-link>
-      <li class="item-list border-top">
+     <router-link class="item-list border-top" tag="li" to="/my">
         <span class="iconfont icon">&#xe7a8;</span>
         我的消息
-      </li>
+        <span class="iconfont right-icon">&#xe65e;</span>
+      </router-link>
       <li class="item-list border-top">
         <span class="iconfont icon">&#xe663;</span>
         收藏
+        <span class="iconfont right-icon">&#xe65e;</span>
       </li>
       <li class="bagcolor"></li>
       <li class="item-list border-top">
         <span class="iconfont icon">&#xe608;</span>
         历史
+        <span class="iconfont right-icon">&#xe65e;</span>
       </li>
-      <li class="item-list border-top">
+       <router-link class="item-list border-top" tag="li" to="/setting">
         <span class="iconfont icon">&#xe607;</span>
         设置
-      </li>
+        <span class="iconfont right-icon">&#xe65e;</span>
+      </router-link>
     </ul>
     <foot></foot>
     <toast ref="toast"></toast>
@@ -36,8 +41,6 @@
   import foot from '../../components/common/foot'
   import toast from '../../components/ui/toast'
 
-  import { mapState, mapMutations } from 'vuex'
-
   export default {
     name: 'myindex',
     components: {
@@ -47,14 +50,10 @@
     data () {
       return {
         isLogin: false,
-        username: '用户名'
+        userInfo: ''
       }
     },
-    computed: {
-      ...mapState(['userInfo'])
-    },
     methods: {
-      ...mapMutations(['changeUserInfo']),
       handleListClick () {
         if (!this.isLogin) {
           this.$refs.toast.toastShow('请先登录')
@@ -62,6 +61,9 @@
       }
     },
     created () {
+      try {
+        this.userInfo = JSON.parse(window.localStorage.userInfo)
+      } catch (e) {}
       if (this.userInfo.state === 2) {
         this.isLogin = true
       } else {
@@ -90,11 +92,14 @@
         border-radius: 100%
     .list
       .item-list
-        margin-left: .2rem
+        margin: 0 .2rem
         line-height: .89rem
         font-size: .26rem
         .icon
           padding-right: .4rem
+          color: #999
+        .right-icon
+          float: right
           color: #999
       .bagcolor
         height: .2rem

@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="header border-bottom">
-      <router-link class="back iconfont" to="/">&#xe605;</router-link>
+      <router-link class="back iconfont" to="/index">&#xe605;</router-link>
       学装修
     </div>
     <div class="nav">

@@ -1,7 +1,7 @@
 <template>
   <div class="questions">
     <div class="title border-bottom">
-      <router-link to="/" tag="span" class="iconfont icon">&#xe6b7;</router-link>提问题
+      <router-link to="/index" tag="span" class="iconfont icon">&#xe6b7;</router-link>提问题
     </div>
     <List :questions="questionsInfo" v-if="isLogin"></List>
     <div class="login-first" v-if="!isLogin">请先登录</div>
@@ -10,7 +10,6 @@
 <script>
   import axios from 'axios'
   import List from './list'
-  import { mapState } from 'vuex'
 
   export default {
     name: 'queations',
@@ -18,7 +17,8 @@
     data () {
       return {
         questionsInfo: [],
-        isLogin: false
+        isLogin: false,
+        userInfo: ''
       }
     },
 
@@ -27,14 +27,13 @@
     },
 
     created () {
+      try {
+        this.userInfo = JSON.parse(window.localStorage.userInfo)
+      } catch (e) {}
       if (this.userInfo.state === 2) {
         this.isLogin = true
         this.getQuestionsData()
       }
-    },
-
-    computed: {
-      ...mapState(['userInfo'])
     },
 
     methods: {

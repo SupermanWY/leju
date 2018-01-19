@@ -10,7 +10,7 @@
           v-model="searchVal"
           @input="handleInputChange">
       </div>
-      <router-link class="cancel" to="/" tag="div">取消</router-link>
+      <router-link class="cancel" to="/index" tag="div">取消</router-link>
     </div>
     <div class="search-con">
       <h2 class="title">热门搜索</h2>

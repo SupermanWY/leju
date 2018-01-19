@@ -13,7 +13,7 @@
         <li class="margin"></li>
         <li class="subtopic-content border-bottom" 
             v-for="(item,index) in topicsubpage.replaycontent" 
-            :key="item.id" 
+            :key="index" 
             :class="[index===0 ? 'padding-top':'padding-tops']">
           <div class="subtopic-user">
             <img class="subtopic-userimg" :src="item.imgUrl">
@@ -61,12 +61,12 @@
         this.scroller = new BScroll(this.$refs.main)
       },
       getTopicSubpageData () {
-        axios.get('/topic/subpage/')
+        axios.get('/topic/subpage/' + this.$route.params.id)
           .then(this.handleGetTopicSubpageSucc.bind(this))
           .catch(this.handleGetTopicSubpageErr.bind(this))
       },
       handleGetTopicSubpageSucc (res) {
-        this.topicsubpage = res.data.data.topicsubpage
+        this.topicsubpage = res.data.data
       },
       handleGetTopicSubpageErr () {
         console.log('获取topicsubpage失败')

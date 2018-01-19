@@ -20,7 +20,7 @@
         </div>
         <div class="password">
           <div class="remember-pwd">记住密码</div>
-          <div class="forget-pwd">忘记密码?</div>
+          <router-link class="forget-pwd" to="/findPwd" tag="div">忘记密码?</router-link>
         </div>
       </div>
     </div>
@@ -58,8 +58,7 @@
         if (this.username === '' || this.password === '') {
           this.$refs.toast.toastShow('用户名或密码不能为空')
         } else {
-          console.log(this.username, this.password)
-          axios.get('/user/login/', {
+          axios.post('/user/login/', {
             username: this.username,
             password: this.password
           }).then(this.handleLoginSucc.bind(this))
@@ -70,7 +69,8 @@
         var state = res.data.state
         if (state === 2) {
           this.changeUserInfo(res.data)
-          this.$router.push('/')
+          window.localStorage.userInfo = JSON.stringify(res.data)
+          this.$router.push('/index')
         } else if (state === 1) {
           this.$refs.toast.toastShow('密码错误')
         } else if (state === 3) {

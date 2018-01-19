@@ -12,7 +12,10 @@ import 'swiper/dist/css/swiper.css'
 import '@/assets/styles/base/reset.css'
 import '@/assets/styles/base/border.css'
 import '@/assets/styles/base/iconfont/iconfont.css'
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
 
+Vue.use(ElementUI)
 Vue.use(VievSwiper)
 Vue.use(VueResource)
 Vue.use(VueLazyload, {

@@ -6,15 +6,15 @@
         <div class="img-con">
           <img :src="item.top_img" class="img">
         </div>
-        <h3 class="item-title">{{item.yop_title}}</h3>
+        <h3 class="item-title">{{item.top_title}}</h3>
         <div class="info">
           <div class="userinfo">
-            <img src="" alt="">
+            <img :src="item.imgurl" alt="" class="img-user">
             <span class="username">{{item.username}}</span>
           </div>
           <div class="houseinfo">
             <span class="house">{{item.house_type}}</span>
-            <span>{{item.usable_area}}</span>
+            <span>{{item.usable_area}}平米</span>
           </div>
         </div>
       </div>
@@ -79,10 +79,14 @@
         align-items: center;
         height: 1rem;
         .username
-          font-size: .24rem;
+          font-size: .26rem;
           color: #333;
+        .img-user
+          height: .6rem
+          width: .6rem
+          border-radius: .6rem
         .houseinfo
-          font-size: .24rem;
+          font-size: .26rem;
           color: #adadad;
           .house
             padding-right: .2rem;

@@ -13,6 +13,9 @@ import Questions from '@/pages/questions/index'
 import Decorate from '@/pages/decorate/index'
 import Design from '@/pages/design/index'
 import Personalpage from '@/pages/my/personalpage'
+import Setting from '@/pages/my/setting'
+import FindPwd from '@/pages/login/findPwd'
+import Guide from '@/pages/guide'
 
 Vue.use(Router)
 
@@ -20,8 +23,27 @@ export default new Router({
   routes: [
     {
       path: '/',
+      redirect: () => {
+        try {
+          var userInfo = JSON.parse(window.localStorage.userInfo)
+        } catch (e) {}
+        if (!userInfo || userInfo === {}) {
+          return '/guide'
+        } else {
+          console.log(userInfo)
+          return '/index'
+        }
+      }
+    },
+    {
+      path: '/index',
       name: 'index',
       component: Index
+    },
+    {
+      path: '/guide',
+      name: 'guide',
+      component: Guide
     },
     {
       path: '/login',
@@ -82,6 +104,16 @@ export default new Router({
       path: '/topicsubpage/:id',
       name: 'topicsubpage',
       component: TopicSubpage
+    },
+    {
+      path: '/setting',
+      name: 'setting',
+      component: Setting
+    },
+    {
+      path: '/findpwd',
+      name: 'findpwd',
+      component: FindPwd
     }
   ]
 })

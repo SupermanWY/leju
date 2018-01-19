@@ -1,7 +1,7 @@
 <template>
   <div class="diary">
     <div class="title border-bottom">
-      <router-link to="/" tag="span"class="iconfont icon" >&#xe6b7;</router-link>看日记
+      <router-link to="/index" tag="span"class="iconfont icon" >&#xe6b7;</router-link>看日记
     </div>
     <div class="wrapper" ref="wrapper" v-show="isLogin">
       <ul class="main">
@@ -21,19 +21,15 @@
 <script>
   import axios from 'axios'
   import BScroll from 'better-scroll'
-  import { mapState } from 'vuex'
   export default {
     name: 'diary',
 
     data () {
       return {
         diaryInfo: [],
-        isLogin: false
+        isLogin: false,
+        userInfo: ''
       }
-    },
-
-    computed: {
-      ...mapState(['userInfo'])
     },
 
     methods: {
@@ -60,6 +56,9 @@
     },
 
     mounted () {
+      try {
+        this.userInfo = JSON.parse(window.localStorage.userInfo)
+      } catch (e) {}
       if (this.userInfo.state === 2) {
         this.isLogin = true
         this.getDiaryInfo()

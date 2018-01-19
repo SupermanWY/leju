@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="header border-bottom">
-      <router-link class="iconfont back" to="/">&#xe605;</router-link>
+      <router-link class="iconfont back" to="/index">&#xe605;</router-link>
       找设计
     </div>
     <div class="list">

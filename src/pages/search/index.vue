@@ -22,17 +22,35 @@
         <div class="item">客厅</div>
       </div>
     </div>
+    <div class="searchres-con" ref="list" v-show="show">
+      <ul class="searchres-list">
+        <router-link tag="li" :to="'/detail/'+item.id" class="searchres-item" v-for="item in searchRes">
+          <div class="title">{{item.top_title}}</div>
+          <div class="content">{{item.house_type}}</div>
+        </router-link>
+      </ul>
+    </div>
   </div>
 </template>
 
 <script>
   import axios from 'axios'
+  import BScroll from 'better-scroll'
 
   export default {
     name: 'search-index',
     data () {
       return {
-        searchVal: ''
+        searchVal: '',
+        searchRes: [],
+        show: false
+      }
+    },
+    watch: {
+      searchRes () {
+        this.$nextTick(() => {
+          this.scroll.refresh()
+        })
       }
     },
     methods: {
@@ -40,11 +58,18 @@
         this.debounce(this.getSearData, this, 500)
       },
       getSearData () {
-        axios.get('/search/?search=' + this.searchVal)
+        if (this.searchVal !== '') {
+          axios.get('/static/search.json/')
              .then(this.handleGetSearchData.bind(this))
+        } else {
+          this.show = false
+        }
       },
       handleGetSearchData (res) {
-        console.log(123)
+        res.data && (res = res.data)
+        res.data.message && (this.searchRes = res.data.message)
+        this.show = true
+        console.log(res)
       },
       debounce (fn, ctx, delay) {
         clearTimeout(fn.id)
@@ -52,6 +77,9 @@
           fn.call(ctx)
         }, delay)
       }
+    },
+    mounted () {
+      this.scroll = new BScroll(this.$refs.list)
     }
   }
 </script>
@@ -104,4 +132,23 @@
         color: #333
         border-radius: .1rem
         background: #f5f5f5
+  .searchres-con
+    position: absolute
+    top: .88rem
+    right: 0
+    bottom: 0
+    left: 0
+    margin: .2rem
+    overflow: hidden
+    background: #fff
+    .searchres-item
+      height: 1rem
+      border-bottom: 1px solid #ccc
+      .title
+        line-height: .5rem
+        font-size: .28rem
+      .content
+        line-height: .5rem
+        font-size: .24rem
+        color: #666
 </style>

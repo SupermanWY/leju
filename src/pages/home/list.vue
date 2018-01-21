@@ -2,7 +2,7 @@
   <div class="list-container">
     <h2 class="title">优秀设计</h2>
     <div class="list">
-      <div class="item-list" v-for="item in listInfo" :key="item.id">
+      <router-link :to="'/detail/'+item.id" tag="div" class="item-list" v-for="item in listInfo" :key="item.id">
         <div class="img-con">
           <img :src="item.top_img" class="img">
         </div>
@@ -17,7 +17,7 @@
             <span>{{item.usable_area}}平米</span>
           </div>
         </div>
-      </div>
+      </router-link>
     </div>
   </div>
 </template>

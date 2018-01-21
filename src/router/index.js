@@ -97,6 +97,16 @@ export default new Router({
       path: '/setting',
       name: 'setting',
       component: () => import('@/pages/my/setting')
+    },
+    {
+      path: '/mes',
+      name: 'mes',
+      component: () => import('@/pages/my/message')
+    },
+    {
+      path: '/detail/:id',
+      name: 'detail',
+      component: () => import('@/pages/detail')
     }
   ]
 })

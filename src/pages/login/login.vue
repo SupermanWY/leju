@@ -58,7 +58,7 @@
         if (this.username === '' || this.password === '') {
           this.$refs.toast.toastShow('用户名或密码不能为空')
         } else {
-          axios.post('/user/login/', {
+          axios.get('/user/login/', {
             username: this.username,
             password: this.password
           }).then(this.handleLoginSucc.bind(this))
@@ -67,13 +67,13 @@
       handleLoginSucc (res) {
         res.data && (res = res.data)
         var state = res.data.state
-        if (state === 2) {
+        if (state === 2 || state === '2') {
           this.changeUserInfo(res.data)
           window.localStorage.userInfo = JSON.stringify(res.data)
           this.$router.push('/index')
-        } else if (state === 1) {
+        } else if (state === 1 || state === '1') {
           this.$refs.toast.toastShow('密码错误')
-        } else if (state === 3) {
+        } else if (state === 3 || state === '3') {
           this.$refs.toast.toastShow('该账户不存在')
         }
       }

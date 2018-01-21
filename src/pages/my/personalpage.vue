@@ -111,7 +111,11 @@
              .catch(this.handleUpdateErr.bind(this))
       },
       handleUpdateSucc (res) {
-        window.localStorage.userInfo = JSON.stringify(res.data.data)
+        if (res.data.data.state === '0' || res.data.data.state === 0) {
+          this.$refs.toast.toastShow('用户名不能重复')
+        } else {
+          window.localStorage.userInfo = JSON.stringify(res.data.data)
+        }
         this.$router.push('/my')
       },
       handleUpdateErr () {

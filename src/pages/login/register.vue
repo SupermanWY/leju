@@ -72,16 +72,16 @@
       },
       handleRegisterSucc (res) {
         const state = res.data.data.state
-        if (state === 0) {
+        if (state === 0 || state === '0') {
           this.$refs.toast.toastShow('缺少参数')
-        } else if (state === 1) {
+        } else if (state === 1 || state === '1') {
           this.$refs.toast.toastShow('验证码错误')
-        } else if (state === 2) {
+        } else if (state === 2 || state === '2') {
           this.$refs.toast.toastShow('注册成功')
           this.$router.push('/login')
-        } else if (state === 3) {
+        } else if (state === 3 || state === '3') {
           this.$refs.toast.toastShow('注册失败')
-        } else if (state === 4) {
+        } else if (state === 4 || state === '4') {
           this.$refs.toast.toastShow('用户已经注册')
         }
       },

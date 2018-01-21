@@ -45,7 +45,7 @@
   import BScroll from 'better-scroll'
 
   export default {
-    name: 'personalpage',
+    name: 'message',
     mounted () {
       this.BScroll = new BScroll(this.$refs.list)
     }

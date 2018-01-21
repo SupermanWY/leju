@@ -24,7 +24,12 @@
     </div>
     <div class="searchres-con" ref="list" v-show="show">
       <ul class="searchres-list">
-        <router-link tag="li" :to="'/detail/'+item.id" class="searchres-item" v-for="item in searchRes">
+        <router-link 
+          tag="li"
+          v-for="item in searchRes"
+          :to="'/detail/'+item.id" 
+          class="searchres-item" 
+          :key="item.id">
           <div class="title">{{item.top_title}}</div>
           <div class="content">{{item.house_type}}</div>
         </router-link>

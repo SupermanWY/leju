@@ -11,6 +11,7 @@
 
 <script>
   export default {
+    name: 'swiper',
     props: ['bannerInfo'],
     data () {
       return {

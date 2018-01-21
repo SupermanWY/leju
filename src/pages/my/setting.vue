@@ -38,7 +38,7 @@
   import axios from 'axios'
 
   export default {
-    name: 'personalpage',
+    name: 'setting',
     components: {
       toast
     },

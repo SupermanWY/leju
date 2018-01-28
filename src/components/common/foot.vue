@@ -27,14 +27,15 @@
 
 <style scoped lang="stylus">
   .footer
-    position: fixed;
-    display: flex;
-    width: 100%;
-    bottom: 0;
-    justify-content: space-around;
-    align-items: center;
-    height: .98rem;
-    background: #fff;
+    position: fixed
+    display: flex
+    width: 100%
+    bottom: 0
+    justify-content: space-around
+    align-items: center
+    height: .98rem
+    background: #fff
+    z-index: 99
     .nav
       text-align: center;
       .icon-nav

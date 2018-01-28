@@ -85,6 +85,7 @@
     right: 0;
     bottom: .98rem;
     left: 0;
+    overflow: hidden
    .main-content
     .nav
       display: flex;

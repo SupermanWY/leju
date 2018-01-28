@@ -1,4 +1,4 @@
-<template>
+  <template>
   <div class="container">
     <div class="header border-bottom">
       <router-link class="back iconfont" to="/my">&#xe605;</router-link>
@@ -8,11 +8,8 @@
       <li class="item item-first border-bottom" style="height: 1.2rem">
         <span class="icon iconfont">&#xe765;</span>
         头像
-        <img :src="userInfo.icon" class="headImg" @click="handleImgClick" v-if="show">
-          <input type="file" ref="photo" v-if="!show" class="photo"/>
-          <img v-if="imageUrl" :src="imageUrl" class="avatar">
-          <i v-else class="el-icon-plus avatar-uploader-icon"></i>
-        </el-upload>
+        <img :src="userInfo.icon" class="headImg" v-if="show">
+        <input type="file" ref="photo" v-if="!show" class="photo"/>
       </li>
       <li class="item item-first border-bottom">
         <span class="icon iconfont">&#xe63f;</span>
@@ -112,14 +109,17 @@
       },
       handleUpdateSucc (res) {
         if (res.data.data.state === '0' || res.data.data.state === 0) {
-          this.$refs.toast.toastShow('用户名不能重复')
-        } else {
+          this.$refs.toast.toastShow('修改失败')
+        } else if (res.data.data.state === '1' || res.data.data.state === 1) {
+          this.$refs.toast.toastShow('修改成功')
           window.localStorage.userInfo = JSON.stringify(res.data.data)
+          setTimeout(() => {
+            this.$router.push('/my')
+          }, 2000)
         }
-        this.$router.push('/my')
       },
       handleUpdateErr () {
-        console.log('返回信息错误')
+        this.$refs.toast.toastShow('返回信息错误')
       }
     },
     created () {
@@ -127,7 +127,7 @@
         this.userInfo = JSON.parse(window.localStorage.userInfo)
         this.username = this.userInfo.username
         this.address = this.userInfo.address
-        this.birthday = this.userInfo.birehday
+        this.birthday = this.userInfo.birthday
         this.radio = this.userInfo.sex
       } catch (e) {}
     }

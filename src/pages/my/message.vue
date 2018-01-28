@@ -6,33 +6,13 @@
     </div>
     <div class="list" ref="list">
       <div>
-        <div class="item">
-          <div class="title">佛挡杀佛</div>
+        <div class="item" v-for="item in mesList" :key="item.id">
+          <div class="title">{{item.title}}</div>
           <div class="img-con">
-            <img src="/static/img/dec.png" class="img" />
+            <img :src="item.imgurl" class="img" />
           </div>
           <div class="bottom">
-            <div class="time">7897</div>
-            <div class="detail">查看详情</div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="title">佛挡杀佛</div>
-          <div class="img-con">
-            <img src="/static/img/dec.png" class="img" />
-          </div>
-          <div class="bottom">
-            <div class="time">7897</div>
-            <div class="detail">查看详情</div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="title">佛挡杀佛</div>
-          <div class="img-con">
-            <img src="/static/img/dec.png" class="img" />
-          </div>
-          <div class="bottom">
-            <div class="time">7897</div>
+            <div class="time">{{item.time}}</div>
             <div class="detail">查看详情</div>
           </div>
         </div>
@@ -43,11 +23,37 @@
 
 <script>
   import BScroll from 'better-scroll'
+  import axios from 'axios'
 
   export default {
     name: 'message',
+    data () {
+      return {
+        mesList: []
+      }
+    },
+    methods: {
+      getData () {
+        axios.get('/information/')
+          .then(this.handleGetDataSucc.bind(this))
+      },
+      handleGetDataSucc (res) {
+        res.data && (res = res.data)
+        res.data && (this.mesList = res.data)
+      }
+    },
+    watch: {
+      mesList () {
+        this.$nextTick(() => {
+          if (this.BScroll) {
+            this.BScroll.refresh()
+          }
+        })
+      }
+    },
     mounted () {
       this.BScroll = new BScroll(this.$refs.list)
+      this.getData()
     }
   }
 </script>

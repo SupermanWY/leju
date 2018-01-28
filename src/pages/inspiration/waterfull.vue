@@ -8,11 +8,13 @@
           <div class="desc">{{item.describe}}</div>
           <div class="userinfo">
             <div class="left-userinfo">
-              <img :src="item.headImg" class="headImg">
+              <img v-lazy="item.headImg" class="headImg">
               <span class="username">{{item.username}}</span>
             </div>
             <div class="right-userinfo">
-              <span class="iconfont icon">&#xe640;</span>
+              <span 
+                class="iconfont icon" 
+                @click="handleIconClick">&#xe640;</span>
               <span class="num">{{item.num}}</span>
             </div>
           </div>
@@ -26,11 +28,13 @@
           <div class="desc">{{item.describe}}</div>
           <div class="userinfo">
             <div class="left-userinfo">
-              <img :src="item.headImg" class="headImg">
+              <img v-lazy="item.headImg" class="headImg">
               <span class="username">{{item.username}}</span>
             </div>
             <div class="right-userinfo">
-              <span class="iconfont icon">&#xe640;</span>
+              <span 
+                class="iconfont icon" 
+                @click="handleIconClick">&#xe640;</span>
               <span class="num">{{item.num}}</span>
             </div>
           </div>
@@ -52,7 +56,8 @@
         waterfullRight: [],
         waterfullLeftHei: 0,
         waterfullRightHei: 0,
-        index: 0
+        index: 0,
+        isLike: false
       }
     },
     watch: {
@@ -83,6 +88,16 @@
         } else {
           this.waterfullRight.push(this.waterfullInfo[this.index++])
         }
+      },
+      handleIconClick (e) {
+        if (this.isLike) {
+          e.target.style.color = '#ccc'
+          e.target.nextElementSibling.innerHTML--
+        } else {
+          e.target.style.color = '#32b379'
+          e.target.nextElementSibling.innerHTML++
+        }
+        this.isLike = !this.isLike
       }
     },
     mounted () {

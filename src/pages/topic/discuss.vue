@@ -7,7 +7,7 @@
     <div class="wrapper" ref="wrapper">
       <div class="discuss">
         <ul class="content">
-          <router-link :to="/topicsubpage/+item.id" 
+          <router-link :to="/discussPage/+item.id" 
                        tag="li" 
                        class="discuss-content" 
                        v-for="(item, index) in discussInfo" 

@@ -4,29 +4,41 @@
       <router-link class="iconfont back" to="/index">&#xe605;</router-link>
       找设计
     </div>
-    <div class="list">
-      <div class="item" v-for="item in listInfo" :key="item.id">
-        <div class="img-con">
-          <img :src="item.imgUrl" class="img">
-        </div>
-        <div class="company">
-          <div class="title">{{item.title}}</div>
-          <span class="name">{{item.company}}</span>
-          <span class="city">{{item.address}}</span>
-          <img :src="item.logo" class="headImg">
-        </div>
-      </div> 
-    </div> 
+    <div class="wrapper" ref="wrapper"> 
+      <div class="list">
+        <div class="item" v-for="item in listInfo" :key="item.id">
+          <div class="img-con">
+            <img v-lazy="item.imgUrl" class="img">
+          </div>
+          <div class="company">
+            <div class="title">{{item.title}}</div>
+            <span class="name">{{item.company}}</span>
+            <span class="city">{{item.address}}</span>
+            <img :src="item.logo" class="headImg">
+          </div>
+        </div> 
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
   import axios from 'axios'
+  import BScroll from 'better-scroll'
   export default {
     name: 'design',
     data () {
       return {
         listInfo: []
+      }
+    },
+    watch: {
+      listInfo () {
+        if (this.BScroll) {
+          this.$nextTick(() => {
+            this.BScroll.refresh()
+          })
+        }
       }
     },
     methods: {
@@ -43,6 +55,7 @@
       axios.get('/design/')
            .then(this.handleGetDataSucc.bind(this))
            .catch(this.handleGetDataErr)
+      this.scroll = new BScroll(this.$refs.wrapper)
     }
   }
 </script>
@@ -59,8 +72,15 @@
       left: .2rem
       font-size: .4rem
       color: #7a7a7a
+.wrapper
+  position: absolute
+  top: .86rem
+  right: 0
+  bottom: 0
+  left: 0
+  overflow: hidden
   .list
-    margin: .2rem
+    padding: .2rem
     .item
       margin-bottom: .5rem
       .img-con

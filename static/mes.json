@@ -1,0 +1,27 @@
+{
+	"ret": true,
+	 "data": [
+        {
+            "id": 1,
+            "imgurl": "/static/img/banner.png",
+            "time": null,
+            "title": "系统消息标题"
+        },{
+            "id": 2,
+            "imgurl": "/static/img/banner.png",
+            "time": null,
+            "title": "系统消息标题"
+        },{
+            "id": 3,
+            "imgurl": "/static/img/banner.png",
+            "time": null,
+            "title": "系统消息标题"
+        },{
+            "id": 4,
+            "imgurl": "/static/img/banner.png",
+            "time": null,
+            "title": "系统消息标题"
+        }
+    ]
+
+}

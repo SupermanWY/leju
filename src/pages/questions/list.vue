@@ -4,7 +4,7 @@
       <li class="questions-list border-bottom" v-for="(item,index) in questions" :class="[index === 0? '' : 'padding-top']">
         <div>
           <div class="questions-img-container">
-            <img class="questions-img" :src="item.imgUrl">
+            <img class="questions-img" v-lazy="item.imgUrl">
             <span class="username">{{item.username}}</span>
           </div>
           <div class="questions-desc">

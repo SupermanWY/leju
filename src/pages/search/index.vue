@@ -64,7 +64,7 @@
       },
       getSearData () {
         if (this.searchVal !== '') {
-          axios.get('/static/search.json/')
+          axios.get('/search/' + this.searchVal)
              .then(this.handleGetSearchData.bind(this))
         } else {
           this.show = false

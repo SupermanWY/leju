@@ -1,6 +1,9 @@
 <template>
   <div class="list-container">
-    <h2 class="title">优秀设计</h2>
+    <div class="header border-bottom">
+      <router-link class="back iconfont" to="/my">&#xe605;</router-link>
+      收藏
+    </div>
     <div class="list">
       <router-link :to="'/detail/'+item.id" tag="div" class="item-list" v-for="item in listInfo" :key="item.id">
         <div class="img-con">
@@ -23,42 +26,52 @@
 </template>
 
 <script>
+  import axios from 'axios'
   export default {
-    name: 'list',
-    props: ['listInfo']
+    name: 'like',
+    data () {
+      return {
+        listInfo: []
+      }
+    },
+    methods: {
+      getData () {
+        axios.get('/list/')
+        .then(this.handleGetDataSucc.bind(this))
+        .catch(this.handleGetDataErr.bind(this))
+      },
+      handleGetDataSucc (res) {
+        res.data && (res = res.data)
+        if (res.ret) {
+          this.listInfo = res.data.wellDesign
+        } else {
+          console.log('请求失败')
+        }
+      },
+      handleGetDataErr () {
+        console.log('请求失败')
+      }
+    },
+    mounted () {
+      this.getData()
+    }
   }
 </script>
 
 <style scoped lang="stylus">
   .list-container
     background: #fff;
-    .title
-      position: relative;
-      height: .68rem;
-      font-size: .28rem;
-      color: #333;
-      text-align: center;
-      line-height: .68rem;
-      &::before
-        content: "";
-        position: absolute;
-        top: 40%;
-        left: 35%;
-        width: .1rem;
-        height: .1rem;
-        border-radius: 100%;
-        border: 1px solid #333;
-        background: #6dd5a7;
-      &::after
-        content: "";
-        position: absolute;
-        top: 40%;
-        left: 65%;
-        width: .1rem;
-        height: .1rem;
-        border-radius: 100%;
-        border: 1px solid #333;
-        background: #6dd5a7;
+    .header
+      heigt: .86rem
+      line-height: .86rem
+      text-align: center
+      font-size: .32rem
+      color: #333
+    .back
+      position: absolute
+      left: .2rem
+      font-size: .4rem
+      color: #7a7a7a
     .list
       padding: 0 .2rem;
       overflow: hidden;

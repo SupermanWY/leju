@@ -10,23 +10,28 @@
         个人主页
         <span class="iconfont right-icon">&#xe65e;</span>
       </router-link>
-     <router-link class="item-list border-top" tag="li" to="/my">
+     <router-link class="item-list border-top" tag="li" to="/mes">
         <span class="iconfont icon">&#xe7a8;</span>
         我的消息
         <span class="iconfont right-icon">&#xe65e;</span>
       </router-link>
-      <li class="item-list border-top">
+      <router-link class="item-list border-top" tag="li" to="/like">
         <span class="iconfont icon">&#xe663;</span>
         收藏
         <span class="iconfont right-icon">&#xe65e;</span>
-      </li>
+      </router-link>
       <li class="bagcolor"></li>
-      <li class="item-list border-top">
+      <router-link class="item-list border-top" tag="li" to="/publish">
         <span class="iconfont icon">&#xe608;</span>
-        历史
+        写日记
         <span class="iconfont right-icon">&#xe65e;</span>
-      </li>
-       <router-link class="item-list border-top" tag="li" to="/setting">
+      </router-link>
+      <router-link class="item-list border-top" tag="li" to="/pubtopic">
+        <span class="iconfont icon">&#xe608;</span>
+        发布话题
+        <span class="iconfont right-icon">&#xe65e;</span>
+      </router-link>
+      <router-link class="item-list border-top" tag="li" to="/setting">
         <span class="iconfont icon">&#xe607;</span>
         设置
         <span class="iconfont right-icon">&#xe65e;</span>
@@ -60,14 +65,17 @@
         }
       }
     },
-    created () {
+    mounted () {
       try {
         this.userInfo = JSON.parse(window.localStorage.userInfo)
       } catch (e) {}
       if (this.userInfo.state) {
         this.isLogin = true
       } else {
-        this.$router.push('/login')
+        this.$refs.toast.toastShow('请先登录')
+        setTimeout(() => {
+          this.$router.replace('/login')
+        }, 2000)
       }
     }
   }

@@ -107,6 +107,31 @@ export default new Router({
       path: '/detail/:id',
       name: 'detail',
       component: () => import('@/pages/detail')
+    },
+    {
+      path: '/discussPage/:id',
+      name: 'discussPage',
+      component: () => import('@/pages/topic/discussPage')
+    },
+    {
+      path: '/publish',
+      name: 'publish',
+      component: () => import('@/pages/my/publish')
+    },
+    {
+      path: '/chat',
+      name: 'chat',
+      component: () => import('@/pages/my/chat')
+    },
+    {
+      path: '/pubtopic',
+      name: 'pubtopic',
+      component: () => import('@/pages/my/pubtopic')
+    },
+    {
+      path: '/like',
+      name: 'like',
+      component: () => import('@/pages/my/like')
     }
   ]
 })

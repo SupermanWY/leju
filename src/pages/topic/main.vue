@@ -5,7 +5,12 @@
       <span class="discuss-more iconfont">查看更多&#xe65e;</span>
     </div>
     <ul class="topic-list">
-      <li class="topic-content" v-for="item in topicInfo">
+      <router-link 
+        class="topic-content" 
+        v-for="item in topicInfo"
+        tag="li"
+        :key="item.id"
+        :to="/topicsubpage/+item.id">
         <div class="topic-bg-container">
           <img class="topic-bg" src="../../../static/img/topicbg.png">
         </div>
@@ -16,8 +21,12 @@
           <div class="user">
             <div class="user-picture" 
              v-for="(img, index) in item.imgUrl" 
-             :key="img.id">
-                <img class="user-img" :src="img.imgUrl">
+             :key="img.id"
+             v-if="index > 4 ? false : true">
+                <img 
+                  class="user-img" 
+                  :src="img.imgUrl" 
+                >
             </div>
             <div class="message-con">
               <img src="../../../static/img/xx.png" class="message-img">
@@ -25,7 +34,7 @@
             <span class="iconfont discusscount">{{item.discusscount}}人参加讨论&#xe65e;</span>
           </div>
         </div>
-      </li>
+      </router-link>
     </ul>
   </div>
 </template>

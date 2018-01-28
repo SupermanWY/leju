@@ -1,14 +1,14 @@
 <template>
   <div class="diary">
     <div class="title border-bottom">
-      <router-link to="/index" tag="span"class="iconfont icon" >&#xe6b7;</router-link>看日记
+      <router-link to="/index" tag="span" class="iconfont icon" >&#xe6b7;</router-link>看日记
     </div>
     <div class="wrapper" ref="wrapper" v-show="isLogin">
       <ul class="main">
         <li class="diray-list" v-for="item in diaryInfo">
           <div class="img-container">
-            <img class="diary-big-img" :src="item.imgurl">
-            <img class="diary-small-img" :src="item.user_img">
+            <img class="diary-big-img" v-lazy="item.imgurl">
+            <img class="diary-small-img" v-lazy="item.user_img">
           </div>
           <p class="diray-title">{{item.title}}</p>
           <p class="diary-desc">{{item.house_money}}万/{{item.usable_area}}㎡/{{item.house_type}}/{{item.house_style}}</p>
@@ -82,6 +82,7 @@
     left: 0
     display: flex
     flex-direction: column
+    font-size: .32rem
     .wrapper
       flex: 1
       overflow: hidden

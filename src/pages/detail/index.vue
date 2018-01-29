@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper" ref="wrapper">
   <div>
-    <div class="like" @click="handleLikeClick">收藏</div>
+    <div class="like" @click="handleLikeClick">{{collectVal}}</div>
     <div class="top">
       <div class="iconfont icon" @click="handleBackClick">&#xe605;</div>
       <div class="img-con">
@@ -72,19 +72,26 @@
       </div>
     </div>
     </div>
+    <toast ref="toast"></toast>
   </div>
 </template>
 
 <script>
   import axios from 'axios'
   import BScroll from 'better-scroll'
+  import toast from '../../components/ui/toast'
 
   export default {
     name: 'detail',
+    components: {
+      toast
+    },
     data () {
       return {
         id: '',
-        detailInfo: {}
+        detailInfo: {},
+        collectVal: '收藏',
+        collectState: 0
       }
     },
     watch: {
@@ -100,12 +107,54 @@
       handleGetInfoSucc (res) {
         res.data && (res = res.data)
         res.data[0] && (this.detailInfo = res.data[0])
+        this.detailInfo && (this.collectState = this.detailInfo.collect_decide)
+        if (this.collectState === 1) {
+          this.collectVal = '取消收藏'
+        } else if (this.collectState === 2) {
+          this.collectVal = '收藏'
+        }
       },
       handleBackClick () {
         this.$router.go(-1)
       },
       handleLikeClick () {
-        console.log(this.$route.params.id)
+        if (this.collectState === 0) {
+          this.$refs.toast.toastShow('请先登录')
+        } else if (this.collectState === 1) {
+          axios.get('/del/collects/' + this.$route.params.id)
+            .then(this.handleDelCollectsSucc.bind(this))
+            .catch(this.handleDelCollectsErr.bind(this))
+        } else if (this.collectState === 2) {
+          axios.get('/add/collects/' + this.$route.params.id)
+            .then(this.handleCollectsSucc.bind(this))
+            .catch(this.handleCollectsErr.bind(this))
+        }
+      },
+      handleDelCollectsSucc (res) {
+        res.data && (res = res.data)
+        res.data && (res = res.data)
+        res.state && (res = res.state)
+        if (res === 1) {
+          this.$refs.toast.toastShow('取消收藏成功')
+        } else {
+          this.handleCollectsErr()
+        }
+      },
+      handleDelCollectsErr () {
+        this.$refs.toast.toastShow('取消收藏失败')
+      },
+      handleCollectsSucc (res) {
+        res.data && (res = res.data)
+        res.data && (res = res.data)
+        res.state && (res = res.state)
+        if (res === 1) {
+          this.$refs.toast.toastShow('收藏成功')
+        } else {
+          this.handleCollectsErr()
+        }
+      },
+      handleCollectsErr () {
+        this.$refs.toast.toastShow('收藏失败')
       }
     },
     mounted () {

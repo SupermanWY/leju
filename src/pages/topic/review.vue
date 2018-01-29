@@ -1,19 +1,10 @@
 <template>
   <div class="container">
     <div class="header border-bottom">
-      <router-link class="back iconfont" to="/my">&#xe605;</router-link>
-      发布话题
+      <span class="back iconfont" @click="handleBackClick">&#xe605;</span>
+      评论
     </div>
     <div class="main">
-      <div class="input-con">
-        <input 
-          type="text" 
-          placeholder="请输入标题" 
-          class="title" 
-          v-model="title"
-          @input="handleTitleChange" />
-        <span class="count"><strong class="heavy">{{this.title.length}}</strong>/20</span>
-      </div>
       <div class="cont-box">
         <textarea 
           class="content" 
@@ -21,9 +12,9 @@
           v-model="content"
           @input="handleContentChange">
         </textarea>
-        <span class="count"><strong class="heavy">{{this.content.length}}</strong>/50</span>
+        <span class="count"><strong class="heavy">{{this.content.length}}</strong>/100</span>
       </div>
-      <div class="publish" @click="handlePublishClick">发布</div>
+      <div class="publish" @click="handlePublishClick">评论</div>
     </div>
     <toast ref="toast"></toast>
   </div>
@@ -44,30 +35,23 @@
       }
     },
     methods: {
-      handleTitleChange () {
-        if (this.title.length >= 20) {
-          this.$refs.toast.toastShow('标题最多可输入20字')
-          this.title = this.title.substr(0, 20)
-        }
+      handleBackClick () {
+        this.$router.go('-1')
       },
       handleContentChange () {
-        if (this.content.length >= 50) {
-          this.$refs.toast.toastShow('内容最多可输入50字')
-          this.content = this.content.substr(0, 50)
+        if (this.content.length >= 100) {
+          this.$refs.toast.toastShow('内容最多可输入100字')
+          this.content = this.content.substr(0, 100)
         }
       },
       handlePublishClick () {
         let reg = /^\s+|\s$/g
-        this.title = this.title.replace(reg, '')
         this.content = this.content.replace(reg, '')
-        if (this.title === '') {
-          this.$refs.toast.toastShow('请输入标题')
-        } else if (this.content === '') {
+        if (this.content === '') {
           this.$refs.toast.toastShow('请输入内容')
         } else {
           axios.get('/send/ht/', {
             params: {
-              title: this.title,
               content: this.content
             }
           })
@@ -79,7 +63,7 @@
         res.data && (res = res.data)
         res.data && (res = res.data.state)
         if (res === 1 || res === '1') {
-          this.$refs.toast.toastShow('发布成功')
+          this.$refs.toast.toastShow('评论成功')
           setTimeout(() => {
             this.$router.go(-1)
           }, 2000)
@@ -88,7 +72,7 @@
         }
       },
       handlePubErr () {
-        this.$refs.toast.toastShow('发布失败')
+        this.$refs.toast.toastShow('评论失败')
       }
     }
   }
@@ -118,15 +102,6 @@
     .heavy
       font-size: .4rem
       color: #6dd5a7
-    .input-con
-      position: relative
-      .title
-        width: 100%
-        line-height: .5rem
-      .count
-        position: absolute
-        right: .1rem
-        top: 0
     .cont-box
       position: relative
       flex: 1

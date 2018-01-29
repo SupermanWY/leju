@@ -14,7 +14,7 @@
       <li class="item item-first border-bottom">
         <span class="icon iconfont">&#xe63f;</span>
         昵称
-        <input type="text" :placeholder="userInfo.username" class="text-item" v-model="username" />
+        <input type="text" class="text-item" v-model="username" />
       </li>
       <li class="item item-first border-bottom">
         <span class="icon iconfont">&#xe7e6;</span>
@@ -27,7 +27,7 @@
       <li class="item item-first border-bottom">
         <span class="icon iconfont">&#xe60f;</span>
         位置
-        <input type="text" :placeholder="userInfo.address" class="text-item" v-model="address" />
+        <input type="text" class="text-item" v-model="address" />
       </li>
       <li class="item item-first border-bottom">
         <span class="icon iconfont">&#xe618;</span>

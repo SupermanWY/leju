@@ -17,18 +17,18 @@
       </router-link>
       <router-link class="item-list border-top" tag="li" to="/like">
         <span class="iconfont icon">&#xe663;</span>
-        收藏
+        我的收藏
         <span class="iconfont right-icon">&#xe65e;</span>
       </router-link>
       <li class="bagcolor"></li>
-      <router-link class="item-list border-top" tag="li" to="/publish">
-        <span class="iconfont icon">&#xe608;</span>
-        写日记
-        <span class="iconfont right-icon">&#xe65e;</span>
-      </router-link>
       <router-link class="item-list border-top" tag="li" to="/pubtopic">
         <span class="iconfont icon">&#xe608;</span>
         发布话题
+        <span class="iconfont right-icon">&#xe65e;</span>
+      </router-link>
+      <router-link class="item-list border-top" tag="li" to="/publish">
+        <span class="iconfont icon">&#xe608;</span>
+        写日记
         <span class="iconfont right-icon">&#xe65e;</span>
       </router-link>
       <router-link class="item-list border-top" tag="li" to="/setting">

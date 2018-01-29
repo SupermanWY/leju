@@ -15,7 +15,7 @@
         </li>
       </ul>
     </div>
-    <div class="login-first" v-if="!isLogin">请先登录</div>
+    <div class="login-first" v-if="!isLogin" @click="handleLoginClick">点击登录</div>
   </div>
 </template>
 <script>
@@ -46,6 +46,9 @@
       },
       careteScroller () {
         this.scroller = new BScroll(this.$refs.wrapper)
+      },
+      handleLoginClick () {
+        this.$router.push('/login')
       }
     },
 

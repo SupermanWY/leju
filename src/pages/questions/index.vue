@@ -4,7 +4,7 @@
       <router-link to="/index" tag="span" class="iconfont icon">&#xe6b7;</router-link>提问题
     </div>
     <List :questions="questionsInfo" v-if="isLogin"></List>
-    <div class="login-first" v-if="!isLogin">请先登录</div>
+    <div class="login-first" v-if="!isLogin" @click="handleLoginClick">点击登录</div>
   </div>
 </template>
 <script>
@@ -47,6 +47,9 @@
       },
       handleGetQuestionsErr () {
         console.log('获取questions失败')
+      },
+      handleLoginClick () {
+        this.$router.push('/login')
       }
     }
 

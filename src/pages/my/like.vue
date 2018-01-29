@@ -36,14 +36,14 @@
     },
     methods: {
       getData () {
-        axios.get('/list/')
+        axios.get('/my/collects/')
         .then(this.handleGetDataSucc.bind(this))
         .catch(this.handleGetDataErr.bind(this))
       },
       handleGetDataSucc (res) {
         res.data && (res = res.data)
         if (res.ret) {
-          this.listInfo = res.data.wellDesign
+          res.data && (this.listInfo = res.data)
         } else {
           console.log('请求失败')
         }

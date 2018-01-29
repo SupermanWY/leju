@@ -1,14 +1,14 @@
 <template>
   <div class="questions">
     <div class="title border-bottom">
-      <span class="iconfont icon" @touchstart="handleBackClick">&#xe6b7;</span>话题
+      <span class="iconfont icon" @touchstart="handleBackClick">&#xe605;</span>话题
     </div>
     <div class="main" ref="main">
       <ul class="subpage-container">
         <li class="subpage-title">
            <p class="topicsubpage-title">{{subpage.title}}</p>
           <p class="topicsubpage-desc">{{subpage.desc}}</p>
-          <p class="topicsubpage-replaycount">回答 {{subpage.replaycount}}</p>
+          <p class="topicsubpage-replaycount" @click="handleReviewClick">评论 {{subpage.replaycount}}</p>
         </li>
         <li class="margin"></li>
         <li class="subtopic-content border-bottom" 
@@ -55,6 +55,9 @@
     },
 
     methods: {
+      handleReviewClick () {
+        this.$router.push('/review')
+      },
       handleBackClick () {
         this.$router.go(-1)
       },

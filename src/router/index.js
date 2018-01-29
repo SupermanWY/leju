@@ -132,6 +132,11 @@ export default new Router({
       path: '/like',
       name: 'like',
       component: () => import('@/pages/my/like')
+    },
+    {
+      path: '/review',
+      name: 'review',
+      component: () => import('@/pages/topic/review')
     }
   ]
 })

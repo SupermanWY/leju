@@ -8,7 +8,7 @@
         <li class="subpage-title">
            <p class="topicsubpage-title">{{subpage.title}}</p>
           <p class="topicsubpage-desc">{{subpage.desc}}</p>
-          <p class="topicsubpage-replaycount">回答 {{subpage.replaycount}}</p>
+          <p class="topicsubpage-replaycount" @click="handleReviewClick">评论 {{subpage.replaycount}}</p>
         </li>
         <li class="margin"></li>
         <li class="subtopic-content border-bottom" 
@@ -69,6 +69,9 @@
       },
       handleGetTopicSubpageErr () {
         console.log('获取topicsubpage失败')
+      },
+      handleReviewClick () {
+        this.$router.push('/review')
       }
     },
 

@@ -46,7 +46,7 @@
     },
     methods: {
       getData () {
-        axios.get('/static/ins.json')
+        axios.get('/static/' + this.style)
            .then(this.handleGetDataSucc)
       },
       handleGetDataSucc (res) {

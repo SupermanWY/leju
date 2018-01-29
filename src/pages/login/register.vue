@@ -52,6 +52,17 @@
     methods: {
       handleSubmitClick (username, verification, password) {
         const passwordReg = /^[a-zA-Z0-9]{8,16}$/
+        if (username === '') {
+          this.$refs.toast.toastShow('手机号不能为空')
+          return
+        } else if (verification === '') {
+          this.$refs.toast.toastShow('请获取验证码')
+          return
+        } else if (password === '') {
+          this.$refs.toast.toastShow('密码不能为空')
+          return
+        }
+
         if (passwordReg.test(password)) {
           this.passwordFlag = true
         } else {

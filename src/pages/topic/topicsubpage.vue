@@ -31,38 +31,47 @@
         </li>
       </ul>
     </div>
+    <toast ref="toast"></toast>
   </div>
 </template>
 <script>
   import axios from 'axios'
   import BScroll from 'better-scroll'
+  import toast from '../../components/ui/toast'
   export default {
     name: 'topicsubpage',
-
+    components: {
+      toast
+    },
     data () {
       return {
         topicsubpage: [],
         subpage: {}
       }
     },
-
     created () {
       this.getTopicSubpageData()
     },
-
     mounted () {
       this.createScroller()
     },
-
     methods: {
       handleReviewClick () {
-        this.$router.push('/review')
+        this.$router.push({
+          path: '/review',
+          query: {
+            id: '1',
+            titleId: this.$route.params.id
+          }
+        })
       },
       handleBackClick () {
         this.$router.go(-1)
       },
       createScroller () {
-        this.scroller = new BScroll(this.$refs.main)
+        this.scroller = new BScroll(this.$refs.main, {
+          click: true
+        })
       },
       getTopicSubpageData () {
         axios.get('/topic/subpage/' + this.$route.params.id)

@@ -69,7 +69,7 @@
       try {
         this.userInfo = JSON.parse(window.localStorage.userInfo)
       } catch (e) {}
-      if (this.userInfo.state) {
+      if (this.userInfo) {
         this.isLogin = true
       } else {
         this.$refs.toast.toastShow('请先登录')

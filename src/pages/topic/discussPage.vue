@@ -1,7 +1,7 @@
 <template>
   <div class="questions">
     <div class="title border-bottom">
-      <span class="iconfont icon" @touchstart="handleBackClick">&#xe6b7;</span>话题
+      <span class="iconfont icon" @touchstart="handleBackClick">&#xe605;</span>话题
     </div>
     <div class="main" ref="main">
       <ul class="subpage-container">
@@ -28,14 +28,18 @@
         </li>
       </ul>
     </div>
+    <toast ref="toast"></toast>
   </div>
 </template>
 <script>
   import axios from 'axios'
   import BScroll from 'better-scroll'
+  import toast from '../../components/ui/toast'
   export default {
     name: 'discusspage',
-
+    components: {
+      toast
+    },
     data () {
       return {
         topicsubpage: [],
@@ -56,7 +60,9 @@
         this.$router.go(-1)
       },
       createScroller () {
-        this.scroller = new BScroll(this.$refs.main)
+        this.scroller = new BScroll(this.$refs.main, {
+          click: true
+        })
       },
       getTopicSubpageData () {
         axios.get('/topic/discuss1/' + this.$route.params.id)
@@ -71,7 +77,13 @@
         console.log('获取topicsubpage失败')
       },
       handleReviewClick () {
-        this.$router.push('/review')
+        this.$router.push({
+          path: '/review',
+          query: {
+            id: '2',
+            titleId: this.$route.params.id
+          }
+        })
       }
     },
 

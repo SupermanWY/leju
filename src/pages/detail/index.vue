@@ -1,7 +1,6 @@
 <template>
-  <div class="wrapper" ref="wrapper">
+<div class="wrapper" ref="wrapper">
   <div>
-    <div class="like" @click="handleLikeClick">{{collectVal}}</div>
     <div class="top">
       <div class="iconfont icon" @click="handleBackClick">&#xe605;</div>
       <div class="img-con">
@@ -73,7 +72,8 @@
     </div>
     </div>
     <toast ref="toast"></toast>
-  </div>
+    <div class="like" @click="handleLikeClick" v-show="show">{{collectVal}}</div>
+</div>
 </template>
 
 <script>
@@ -91,7 +91,8 @@
         id: '',
         detailInfo: {},
         collectVal: '收藏',
-        collectState: 0
+        collectState: 0,
+        show: true
       }
     },
     watch: {
@@ -136,6 +137,7 @@
         res.state && (res = res.state)
         if (res === 1) {
           this.$refs.toast.toastShow('取消收藏成功')
+          this.show = true
         } else {
           this.handleCollectsErr()
         }
@@ -149,6 +151,7 @@
         res.state && (res = res.state)
         if (res === 1) {
           this.$refs.toast.toastShow('收藏成功')
+          this.show = false
         } else {
           this.handleCollectsErr()
         }
@@ -159,7 +162,9 @@
     },
     mounted () {
       this.getDetailInfo(this.$route.params.id)
-      this.scroll = new BScroll(this.$refs.wrapper)
+      this.scroll = new BScroll(this.$refs.wrapper, {
+        click: true
+      })
     }
   }
 </script>
@@ -176,11 +181,11 @@
     position: absolute
     bottom: .5rem
     right: .2rem
-    width: .8rem
-    height: .8rem
+    width: 1rem
+    height: 1rem
     border-radius: .5rem
     text-align: center
-    line-height: .8rem
+    line-height: 1rem
     color: #fff
     font-size:  .24rem
     background: rgba(0, 0, 0, .5)

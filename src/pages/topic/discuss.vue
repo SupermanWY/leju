@@ -35,7 +35,8 @@
       createScroll () {
         this.scroll = new BScroll(this.$refs.wrapper, {
           scrollX: true,
-          scrollY: false
+          scrollY: false,
+          click: true
         })
       }
     },

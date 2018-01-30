@@ -46,10 +46,10 @@
       <div class="upload-img-con">
         <img :src="uploadImg" alt="" class="upload-img" ref="uploadImg" />
       </div>
-      <div class="file-con">  
+      <!-- <div class="file-con">  
         <div class="upfile">{{fileVal}}</div>  
         <input title="上传图片" type="file"  ref="file" class="file" @change="handleInputChange" />  
-      </div> 
+      </div>  -->
       <div class="publish" @click="handleSubmitClick">提交</div>
     </div>
     <toast ref="toast"></toast>
@@ -164,19 +164,20 @@
     },
     methods: {
       handleSubmitClick () {
+        // else if (this.file.type !== 'image/jpeg') {
+        //   this.$refs.toast.toastShow('暂不支持此文件类型')
+        // }
         if (!this.style || !this.type || !this.area || !this.spend) {
           this.$refs.toast.toastShow('请选择您的房屋信息')
         } else if (this.textareaVal === '') {
           this.$refs.toast.toastShow('请输入内容')
-        } else if (this.file.type !== 'image/jpeg') {
-          this.$refs.toast.toastShow('暂不支持此文件类型')
         } else if (this.inputVal === '') {
           this.$refs.toast.toastShow('请输入标题')
         } else {
           const formData = new FormData()
           formData.append('title', this.inputVal)
           formData.append('content', this.textareaVal)
-          formData.append('img', this.file)
+          // formData.append('img', this.file)
           formData.append('style', this.style)
           formData.append('type', this.type)
           formData.append('area', this.area)

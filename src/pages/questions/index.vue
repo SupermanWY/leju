@@ -26,7 +26,7 @@
       List
     },
 
-    created () {
+    mounted () {
       try {
         this.userInfo = JSON.parse(window.localStorage.userInfo)
       } catch (e) {}

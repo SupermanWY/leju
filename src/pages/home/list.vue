@@ -66,7 +66,6 @@
         height: 0
         padding-bottom: 50.28%
         overflow: hidden
-        background: cyan
         .img
           width: 100%;
       .item-title

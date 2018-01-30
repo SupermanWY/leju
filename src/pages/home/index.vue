@@ -1,4 +1,5 @@
 <template>
+<div>
   <div class="contaier" ref="wrapper">
     <div class="main-content">
       <index-header></index-header>
@@ -23,8 +24,9 @@
       </div>
       <list :listInfo='listInfo'></list>
     </div>
-    <foot class="footer"></foot>
   </div>
+  <foot class="footer"></foot>
+</div>
 </template>
 
 <script>
@@ -53,7 +55,9 @@
     mounted () {
       this.getData()
       this.$nextTick(() => {
-        this.scroll = new BScroll(this.$refs.wrapper)
+        this.scroll = new BScroll(this.$refs.wrapper, {
+          click: true
+        })
       })
     },
     methods: {

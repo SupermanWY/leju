@@ -14,7 +14,9 @@ import '@/assets/styles/base/border.css'
 import '@/assets/styles/base/iconfont/iconfont.css'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
+import VueCookie from 'vue-cookie'
 
+Vue.use(VueCookie)
 Vue.use(ElementUI)
 Vue.use(VievSwiper)
 Vue.use(VueResource)

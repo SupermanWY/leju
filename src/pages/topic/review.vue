@@ -12,7 +12,9 @@
           v-model="content"
           @input="handleContentChange">
         </textarea>
-        <span class="count"><strong class="heavy">{{this.content.length}}</strong>/100</span>
+        <span class="count"><strong class="heavy">{{this.content.length}}</strong>/300</span>
+      </div>
+      <div class="img-con">
       </div>
       <div class="publish" @click="handlePublishClick">评论</div>
     </div>
@@ -39,9 +41,9 @@
         this.$router.go('-1')
       },
       handleContentChange () {
-        if (this.content.length >= 100) {
-          this.$refs.toast.toastShow('内容最多可输入100字')
-          this.content = this.content.substr(0, 100)
+        if (this.content.length >= 300) {
+          this.$refs.toast.toastShow('内容最多可输入300字')
+          this.content = this.content.substr(0, 300)
         }
       },
       handlePublishClick () {
@@ -50,13 +52,20 @@
         if (this.content === '') {
           this.$refs.toast.toastShow('请输入内容')
         } else {
-          axios.get('/send/ht/', {
-            params: {
+          console.log(this.$route.query.id)
+          if (this.$route.query.id === '1') {
+            axios.post('/topic/comment/' + this.$route.query.titleId, {
               content: this.content
-            }
-          })
-            .then(this.handlePubSucc.bind(this))
-            .catch(this.handlePubErr.bind(this))
+            })
+              .then(this.handlePubSucc.bind(this))
+              .catch(this.handlePubErr.bind(this))
+          } else {
+            axios.post('udcontent/comment/' + this.$route.query.titleId, {
+              content: this.content
+            })
+              .then(this.handlePubSucc.bind(this))
+              .catch(this.handlePubErr.bind(this))
+          }
         }
       },
       handlePubSucc (res) {
@@ -68,7 +77,7 @@
             this.$router.go(-1)
           }, 2000)
         } else {
-          this.handlePubErr()
+          this.$refs.toast.toastShow('请先登录')
         }
       },
       handlePubErr () {
@@ -113,6 +122,12 @@
         position: absolute
         top: .2rem
         right: .1rem
+    .img-con
+      height: 2rem
+      display: flex
+      justify-content: space-around
+      img
+        width: 33%
     .publish
       height: .9rem
       margin: .2rem

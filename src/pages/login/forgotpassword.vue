@@ -8,7 +8,7 @@
         <div class="verification inputCode border-bottom">
           <input type="text" class="forgotpassword-input"  placeholder="请输入手机号" ref="username">
         </div>
-       <input type="button" class="verification getVerification"  value="获取验证码" @click="handleGetCode($refs.username.value)">
+       <input type="button" class="verification getVerification"  :value="btnValue" @click="handleGetCode($refs.username.value)">
      </label>
      <label  class="forgotpassword-container border-bottom">
       <input type="text" class="forgotpassword-input" placeholder="请输入验证码" ref="verification">
@@ -33,7 +33,9 @@
       return {
         userFlag: false,
         passwordFlag: false,
-        smsState: false
+        smsState: false,
+        btnValue: '获取验证码',
+        isSubmit: true
       }
     },
 
@@ -59,6 +61,17 @@
         }
       },
       handleGetCodeSucc () {
+        this.isSubmit = false
+        var time = 60
+        this.timer = setInterval(() => {
+          time--
+          this.btnValue = time + '秒后获取'
+          if (time === 0) {
+            clearInterval(this.timer)
+            this.isSubmit = true
+            this.btnValue = '请获取验证码'
+          }
+        }, 1000)
         this.smsState = true
       },
       handleInputCheck () {

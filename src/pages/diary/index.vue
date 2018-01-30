@@ -7,7 +7,7 @@
       <ul class="main">
         <li class="diray-list" v-for="item in diaryInfo">
           <div class="img-container">
-            <img class="diary-big-img" v-lazy="item.imgurl">
+            <img class="diary-big-img" :src="item.imgurl">
             <img class="diary-small-img" v-lazy="item.user_img">
           </div>
           <p class="diray-title">{{item.title}}</p>
@@ -103,9 +103,10 @@
             .diary-small-img
               position: absolute
               right: .2rem
-              bottom: -.34rem
+              bottom: 0rem
               width: .8rem
               height: .8rem
+              float: right
           .diray-title
             margin: .19rem 0 .29rem 0 
             font-size: .3rem
@@ -113,5 +114,4 @@
           .diary-desc
             font-size: .26rem
             color: #999
-              
 </style>

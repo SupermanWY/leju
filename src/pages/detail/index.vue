@@ -137,7 +137,7 @@
         res.state && (res = res.state)
         if (res === 1) {
           this.$refs.toast.toastShow('取消收藏成功')
-          this.show = true
+          this.show = false
         } else {
           this.handleCollectsErr()
         }

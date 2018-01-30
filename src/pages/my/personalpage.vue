@@ -8,8 +8,8 @@
       <li class="item item-first border-bottom" style="height: 1.2rem">
         <span class="icon iconfont">&#xe765;</span>
         头像
-        <img :src="userInfo.icon" class="headImg" v-if="show">
-        <input type="file" ref="photo" v-if="!show" class="photo"/>
+        <img :src="icon" class="headImg">
+        <input type="file" ref="photo" class="photo" @change="handleHeadimgChage"/>
       </li>
       <li class="item item-first border-bottom">
         <span class="icon iconfont">&#xe63f;</span>
@@ -58,35 +58,31 @@
     data () {
       return {
         userInfo: '',
+        icon: '',
         headImgShow: true,
         birthday: '',
         imageUrl: '',
         format: '',
         file: '',
-        show: true,
         radio: '男',
         username: '',
         address: ''
       }
     },
     methods: {
-      handleAvatarSuccess (res, file) {
-        this.imageUrl = URL.createObjectURL(file.raw)
-        this.file = file
-      },
-      beforeAvatarUpload (file) {
-        const isJPG = file.type === 'image/jpeg'
-        const isLt2M = file.size / 1024 / 1024 < 2
-        if (!isJPG) {
-          this.$message.error('上传头像图片只能是 JPG 格式!')
+      handleHeadimgChage () {
+        let file = this.$refs.photo.files[0]
+        if (file.type !== 'image/jpeg') {
+          this.$refs.toast.toastShow('暂不支持此文件类型')
+        } else {
+          if (typeof FileReader !== 'undefined') {
+            const reader = new FileReader()
+            reader.readAsDataURL(file)
+            reader.onload = (evt) => {
+              this.icon = evt.target.result
+            }
+          }
         }
-        if (!isLt2M) {
-          this.$message.error('上传头像图片大小不能超过 2MB!')
-        }
-        return isJPG && isLt2M
-      },
-      handleImgClick () {
-        this.show = false
       },
       handleSubmitClick () {
         var formData = new FormData()
@@ -129,6 +125,7 @@
         this.address = this.userInfo.address
         this.birthday = this.userInfo.birthday
         this.radio = this.userInfo.sex
+        this.icon = this.userInfo.icon
       } catch (e) {}
     }
   }
@@ -136,10 +133,13 @@
 
 <style scoped lang="stylus">
   .photo
-    float: right
-    margin-top: .3rem
-    height: .9re
-    width: 3.5rem
+    position: absolute
+    right: .2rem
+    top: .1rem
+    width: 1rem
+    height: 1rem
+    opacity: 0
+    z-index: 3
     background: #fff
   .header
     heigt: .86rem

@@ -92,10 +92,8 @@
       handleIconClick (e) {
         if (this.isLike) {
           e.target.style.color = '#ccc'
-          e.target.nextElementSibling.innerHTML--
         } else {
           e.target.style.color = '#32b379'
-          e.target.nextElementSibling.innerHTML++
         }
         this.isLike = !this.isLike
       }

@@ -73,7 +73,7 @@
     height: 100%
     .img-box
       height: 0
-      padding-bottom: 128.53%
+      padding-bottom: 110%
       overflow: hidden
       .img
         width: 100%

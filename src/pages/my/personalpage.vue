@@ -9,7 +9,7 @@
         <span class="icon iconfont">&#xe765;</span>
         头像
         <img :src="icon" class="headImg">
-        <input type="file" ref="photo" class="photo" @change="handleHeadimgChage"/>
+        <!-- <input type="file" ref="photo" class="photo"/> -->
       </li>
       <li class="item item-first border-bottom">
         <span class="icon iconfont">&#xe63f;</span>
@@ -86,14 +86,14 @@
       },
       handleSubmitClick () {
         var formData = new FormData()
-        try {
-          let file = this.$refs.photo.files[0]
-          if (file.type !== 'image/jpeg') {
-            this.$refs.toast.toastShow('暂不支持此文件类型')
-          } else {
-            formData.append('icon', file)
-          }
-        } catch (e) {}
+        // try {
+        //   let file = this.$refs.photo.files[0]
+        //   if (file.type !== 'image/jpeg') {
+        //     this.$refs.toast.toastShow('暂不支持此文件类型')
+        //   } else {
+        //     formData.append('icon', file)
+        //   }
+        // } catch (e) {}
         formData.append('nickname', this.username)
         formData.append('sex', this.radio)
         formData.append('address', this.address)
@@ -115,7 +115,7 @@
         }
       },
       handleUpdateErr () {
-        this.$refs.toast.toastShow('返回信息错误')
+        this.$refs.toast.toastShow('修改失败')
       }
     },
     created () {

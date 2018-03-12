@@ -49,7 +49,15 @@
     data () {
       return {
         bannerInfo: [],
-        listInfo: []
+        listInfo: [],
+        a: {
+          b: 1
+        }
+      }
+    },
+    watch: {
+      'a.b' () {
+        console.log(123)
       }
     },
     mounted () {

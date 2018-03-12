@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
+
+<script>
+	var obj = {
+		a: 1,
+		b: 2
+	}
+	function defineProperty(obj, key, val) {
+		Object.defineProperty(obj, key, {
+			get () {
+				console.log(key + ' print')
+				return val
+			},
+			set (changeVal) {
+				console.log(key + ' change')
+				val = changeVal
+			}
+		})
+	}
+
+	function observer(obj) {
+		for (let key in obj) {
+			if (obj.hasOwnProperty) {
+				defineProperty(obj, key, obj[key])
+			}
+		}
+	}
+
+
+	Object.defineProperty(obj, 'c', {
+		get () {
+			var a = 1
+			return a
+		},
+		set (val) {
+			a = val
+		}
+	})
+	obj.c = 2
+	console.log(obj.c = 3)
+</script>

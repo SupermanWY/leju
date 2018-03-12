@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div style="display: flex;">
+		<div style="flex: 1;background: red;border-box: box-sizing">
+			<div style="position: absolute;">asdfasdf</div>
+		</div>
+		<div style="flex: 1;background: yellow"></div>
+		<div style="flex: 1;background: cyan"></div>
+	</div>
+</body>
+</html>
+<script>
+	function A () {}
+	A.prototype = {
+		constructor: A,
+		x: 1
+	}
+
+	function B () {}
+	B.prototype = Object.create(A.prototype)
+	B.prototype.y = 3
+	var b = new B()
+	var a = new A()
+	console.log(b.y, a.y)
+</script>
